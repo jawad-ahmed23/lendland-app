@@ -5,6 +5,7 @@ import fdusdLogo from 'libs/tokens/img/fdusd.svg';
 import usdtLogo from 'libs/tokens/img/usdt.svg';
 import wbnbLogo from 'libs/tokens/img/wbnb.svg';
 import xvsLogo from 'libs/tokens/img/xvs.svg';
+import lelaLogo from 'libs/tokens/img/lela.png';
 import type { Token } from 'types';
 
 const bnbToken: Token = {
@@ -17,6 +18,12 @@ const bnbToken: Token = {
 
 export const tokens: Token[] = [
   bnbToken,
+  {
+    address: '0x3E2e61F1c075881F3fB8dd568043d8c221fd5c61',
+    decimals: 18,
+    symbol: 'LELA',
+    asset: lelaLogo,
+  },
   {
     address: '0x3E2e61F1c075881F3fB8dd568043d8c221fd5c61',
     decimals: 18,

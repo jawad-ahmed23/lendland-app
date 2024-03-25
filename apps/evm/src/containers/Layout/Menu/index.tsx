@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
 import venusLogoSrc from 'assets/img/venusLogo.svg';
-import venusLogoWithTextSrc from 'assets/img/venusLogoWithText.svg';
+// import venusLogoWithTextSrc from 'assets/img/venusLogoWithText.svg';
+import lendLandLogoWithTextSrc from 'assets/img/lendlandLogoWithText.png';
 import { Icon } from 'components';
 import { PAGE_CONTAINER_ID } from 'constants/layout';
 import { routes } from 'constants/routing';
@@ -81,17 +82,22 @@ export const Menu: React.FC = () => {
       </div>
 
       {/* MD and up menu */}
-      <div className="bg-cards hidden pt-7 md:flex md:flex-col md:items-center xl:w-56">
+      <div className="bg-background hidden pt-7 md:flex md:flex-col md:items-center xl:w-56">
         <Link
           className="mb-4 flex w-full items-center justify-center py-2"
           to={routes.dashboard.path}
         >
           <img src={venusLogoSrc} alt={t('layout.menu.venusLogoAlt')} className="h-9 xl:hidden" />
 
-          <img
+          {/* <img
             src={venusLogoWithTextSrc}
             alt={t('layout.menu.venusLogoAlt')}
             className="hidden h-9 xl:block"
+          /> */}
+          <img
+            src={lendLandLogoWithTextSrc}
+            alt={t('layout.menu.venusLogoAlt')}
+            className="hidden h-9 xl:block w-[200px] object-contain"
           />
         </Link>
 

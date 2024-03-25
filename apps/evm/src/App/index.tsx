@@ -12,6 +12,8 @@ import { MuiThemeProvider } from 'theme/MuiThemeProvider';
 
 import Routes from './Routes';
 
+import './style.css';
+
 const NotificationCenter = lazy(() => import('libs/notifications/NotificationCenter'));
 const AppVersionChecker = lazy(() => import('containers/AppVersionChecker'));
 

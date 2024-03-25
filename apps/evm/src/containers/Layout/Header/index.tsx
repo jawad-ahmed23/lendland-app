@@ -8,7 +8,7 @@ import ConnectButton from '../ConnectButton';
 export const Header: React.FC = () => {
   const isChainSelectEnabled = useIsFeatureEnabled({ name: 'chainSelect' });
   return (
-    <div className="px-4 pb-4 pt-6 md:flex md:justify-between md:px-6 md:py-8 xl:px-10">
+    <div className="px-4 bg-black mb-4 pb-4 pt-6 md:flex md:justify-between md:px-6 md:py-8 xl:px-10">
       <div className="flex flex-1 items-center">
         <Breadcrumbs />
       </div>

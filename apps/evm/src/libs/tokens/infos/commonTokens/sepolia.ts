@@ -7,6 +7,7 @@ import wbtcLogo from 'libs/tokens/img/wbtc.svg';
 import wethLogo from 'libs/tokens/img/weth.svg';
 import wstEthLogo from 'libs/tokens/img/wstEth.svg';
 import xvsLogo from 'libs/tokens/img/xvs.svg';
+import lelaLogo from 'libs/tokens/img/lela.png'
 import type { Token } from 'types';
 
 const ethToken: Token = {
@@ -19,6 +20,12 @@ const ethToken: Token = {
 
 export const tokens: Token[] = [
   ethToken,
+  {
+    address: '0x66ebd019E86e0af5f228a0439EBB33f045CBe63E',
+    decimals: 18,
+    symbol: 'LELA',
+    asset: lelaLogo,
+  },
   {
     address: '0x66ebd019E86e0af5f228a0439EBB33f045CBe63E',
     decimals: 18,

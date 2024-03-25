@@ -28,8 +28,8 @@ const getVariantClasses = ({
     // primary
     default:
       return cn(
-        'border-lightGrey bg-cards hover:border-lightGrey hover:bg-lightGrey active:bg-lightGrey px-3 sm:px-4',
-        isMenuOpened && 'border-blue bg-lightGrey hover:border-blue',
+        'border-yellowDark bg-black text-white hover:border-yellowDark hover:bg-black active:bg-black px-3 sm:px-4',
+        isMenuOpened && 'border-yellowDarker bg-black hover:border-yellowDarker',
       );
   }
 };

@@ -39,8 +39,8 @@ export const useStyles = () => {
         display: flex;
         align-items: center;
         padding: ${isSmall ? theme.spacing(1, 2, 1, 4) : theme.spacing(2, 2, 2, 4)};
-        border-radius: ${theme.spacing(isSmall ? 2 : 3)};
-        border: 1px solid ${borderColor};
+        border-radius: 20px;
+        border: 1px solid ${theme.palette.text.yellowDark};
         transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         background-color: ${backgroundColor};
 
@@ -55,7 +55,7 @@ export const useStyles = () => {
           !disabled &&
           css`
           &:hover {
-            border-color: ${theme.palette.text.secondary};
+            border-color: ${theme.palette.text.yellowDark};
           }
         `
         }

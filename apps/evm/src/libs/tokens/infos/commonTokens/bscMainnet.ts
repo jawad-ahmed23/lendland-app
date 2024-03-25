@@ -50,6 +50,7 @@ import wbnbLogo from 'libs/tokens/img/wbnb.svg';
 import winLogo from 'libs/tokens/img/win.svg';
 import xrpLogo from 'libs/tokens/img/xrp.svg';
 import xvsLogo from 'libs/tokens/img/xvs.svg';
+import lelaLogo from 'libs/tokens/img/lela.png';
 import type { Token } from 'types';
 
 const bnbToken: Token = {
@@ -61,6 +62,12 @@ const bnbToken: Token = {
 };
 
 export const tokens: Token[] = [
+  {
+    address: '0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63',
+    decimals: 18,
+    symbol: 'LELA',
+    asset: lelaLogo,
+  },
   {
     address: '0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63',
     decimals: 18,

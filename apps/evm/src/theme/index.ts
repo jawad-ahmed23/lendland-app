@@ -13,19 +13,26 @@ export const theme = {
     inherit: 'inherit',
     transparent: 'transparent',
     // The next colors are taken from the UI kit in Figma
-    background: '#181D27',
-    cards: '#1E2431',
+    // background: '#181D27',
+    background: '#000',
+    // cards: '#1E2431',
+    cards: '#07090e',
     grey: '#AAB3CA',
-    lightGrey: '#2D3549',
+    lightGrey: 'rgba(32, 39, 56, .4)',
     green: '#00C38E',
     red: '#E93D66',
     offWhite: '#FFFFFF',
     orange: '#F57842',
     yellow: '#F5B242',
-    blue: '#3A78FF',
+    blue: '#b8d022',
     // The next colors are not in the UI kit, but are used throughout the designs
     mediumBlue: '#265ACC',
     darkBlue: '#1B4398',
+    // LendLand
+    yellowDark: '#b8d022',
+    yellowDarker: '#9eb706',
+    white: '#fff',
+    black: '#000'
   },
   fontSize: {
     xs: ['0.75rem', '1.5'],

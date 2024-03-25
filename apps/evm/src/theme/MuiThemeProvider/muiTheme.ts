@@ -26,6 +26,7 @@ export const PALETTE = {
     primary: theme.colors.offWhite,
     secondary: theme.colors.grey,
     disabled: 'rgba(161, 161, 161, 1)',
+    yellowDark: theme.colors.yellowDark
   },
   button: {
     main: theme.colors.blue,
@@ -42,7 +43,8 @@ export const PALETTE = {
     tan: 'rgba(255, 231, 206, 1)',
     delimiter: 'rgba(33, 41, 58, 1)',
     warning: theme.colors.orange,
-    hover: 'rgba(32, 39, 56, 1)',
+    hover: 'rgba(32, 39, 56, .1)',
+    // hover: 'rgba(184, 208, 34, 0.5)',
   },
 };
 
@@ -157,8 +159,9 @@ export default createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundImage: 'none',
-          backgroundColor: PALETTE.background.paper,
+          // backgroundImage: 'none',
+          // backgroundColor: PALETTE.background.paper,
+          backgroundImage: 'linear-gradient(140deg, rgba(7, 9, 14, 1) 70%, rgba(184, 208, 34, 0.7) 130%)',
           borderRadius: SHAPE.borderRadius.large,
           padding: SPACING * 6,
           boxShadow: 'none',

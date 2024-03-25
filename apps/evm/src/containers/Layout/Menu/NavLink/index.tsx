@@ -22,11 +22,12 @@ export const NavLink: React.FC<NavLinkProps> = ({
 
   return (
     <RRNavLink
+    // text-blue md:bg-lightGrey md:text-offWhite xl:before:bg-yellowDark xl:before:absolute xl:before:bottom-0 xl:before:left-0 xl:before:top-0 xl:before:w-1 xl:before:rounded-br-lg xl:before:rounded-tr-lg
       className={({ isActive }) =>
         cn(
-          'hover:bg-lightGrey active:bg-lightGrey flex items-center justify-center whitespace-nowrap px-6 py-4 md:h-14 md:w-14 md:rounded-2xl md:p-0 xl:relative xl:h-auto xl:w-full xl:rounded-none xl:px-8 xl:py-4 xl:font-semibold',
+          'hover:bg-gradient-to-r from-yellowDark hover:text-white flex items-center justify-center whitespace-nowrap px-6 py-4 md:h-14 md:w-14 md:rounded-2xl md:p-0 xl:relative xl:h-auto xl:w-full xl:rounded-none xl:px-8 xl:py-4 xl:font-semibold',
           isActive
-            ? 'text-blue md:bg-lightGrey md:text-offWhite xl:before:bg-blue xl:before:absolute xl:before:bottom-0 xl:before:left-0 xl:before:top-0 xl:before:w-1 xl:before:rounded-br-lg xl:before:rounded-tr-lg'
+            ? 'bg-gradient-to-r from-yellowDark'
             : 'text-grey',
           className,
         )

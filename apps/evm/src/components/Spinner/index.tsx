@@ -1,7 +1,7 @@
 import { useTranslation } from 'libs/translations';
 import { cn } from 'utilities';
 
-import spinnerAnimation from './spinnerAnimation.gif';
+import spinnerAnimation from './spinner.gif';
 import TEST_IDS from './testIds';
 
 interface SpinnerProps {

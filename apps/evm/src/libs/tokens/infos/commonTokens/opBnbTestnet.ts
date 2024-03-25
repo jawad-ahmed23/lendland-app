@@ -4,6 +4,7 @@ import ethLogo from 'libs/tokens/img/eth.svg';
 import usdtLogo from 'libs/tokens/img/usdt.svg';
 import wbnbLogo from 'libs/tokens/img/wbnb.svg';
 import xvsLogo from 'libs/tokens/img/xvs.svg';
+import lelaLogo from 'libs/tokens/img/lela.png';
 import type { Token } from 'types';
 
 const bnbToken: Token = {
@@ -21,6 +22,12 @@ export const tokens: Token[] = [
     decimals: 18,
     symbol: 'XVS',
     asset: xvsLogo,
+  },
+  {
+    address: '0xc2931B1fEa69b6D6dA65a50363A8D75d285e4da9',
+    decimals: 18,
+    symbol: 'LELA',
+    asset: lelaLogo,
   },
   {
     address: '0x94680e003861D43C6c0cf18333972312B6956FF1',

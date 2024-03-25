@@ -17,7 +17,7 @@ const getVariantClasses = ({ variant, active }: { variant: Variant; active: bool
   switch (variant) {
     case 'secondary':
       return cn(
-        'border-mediumBlue hover:border-blue hover:bg-blue active:border-mediumBlue active:bg-mediumBlue disabled:border-lightGrey disabled:bg-transparent',
+        'border-yellowDarker hover:border-blue hover:bg-blue active:border-yellowDarker active:bg-yellowDarker disabled:border-lightGrey disabled:bg-transparent',
         active && 'border-blue bg-blue',
       );
     case 'tertiary':
@@ -32,8 +32,8 @@ const getVariantClasses = ({ variant, active }: { variant: Variant; active: bool
       );
     case 'quinary':
       return cn(
-        'border-cards border-lightGrey bg-cards active:border-blue active:bg-blue disabled:border-background disabled:bg-background h-8 rounded-full px-5 py-1',
-        active ? 'border-blue bg-blue' : 'hover:border-lightGrey hover:bg-lightGrey',
+        'border-cards border-yellowDark bg-cards active:border-yellowDark active:bg-yellowDark disabled:border-background disabled:bg-background h-8 rounded-full px-5 py-1',
+        active ? 'border-blue bg-blue text-black' : 'hover:text-black hover:border-yellowDarker hover:bg-yellowDarker',
       );
     case 'senary':
       return cn(
@@ -42,14 +42,14 @@ const getVariantClasses = ({ variant, active }: { variant: Variant; active: bool
       );
     case 'text':
       return cn(
-        'active:mediumBlue text-blue hover:text-mediumBlue bg-transparent p-0 font-normal',
-        active && 'text-mediumBlue',
+        'active:yellowDarker text-blue hover:text-yellowDarker bg-transparent p-0 font-normal',
+        active && 'text-yellowDarker',
       );
     // primary
     default:
       return cn(
-        'border-blue bg-blue active:border-darkBlue active:bg-darkBlue disabled:border-lightGrey disabled:bg-lightGrey',
-        active ? 'border-mediumBlue bg-mediumBlue' : 'hover:border-mediumBlue hover:bg-mediumBlue',
+        'border-yellowDark bg-yellowDark text-black active:border-yellowDarker active:bg-yellowDarker disabled:border-lightGrey disabled:bg-lightGrey',
+        active ? 'border-yellowDarker bg-yellowDarker' : 'hover:border-yellowDarker hover:bg-yellowDarker',
       );
   }
 };
