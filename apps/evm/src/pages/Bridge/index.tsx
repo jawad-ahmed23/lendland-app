@@ -45,8 +45,10 @@ const BridgePage: React.FC = () => {
   const { accountAddress } = useAccountAddress();
   const isUserConnected = !!accountAddress;
 
+  // TODO: change 'xvs' to 'lela'
   const xvs = useGetToken({
-    symbol: 'XVS',
+    // symbol: 'XVS',
+    symbol: 'LELA',
     chainId,
   });
 
@@ -425,7 +427,7 @@ const BridgePage: React.FC = () => {
         </form>
       </Card>
 
-      <div className="flex items-center justify-center space-x-3">
+      {/* <div className="flex items-center justify-center space-x-3">
         <div className="flex items-center">
           <span className="text-grey mr-1 text-sm">{t('bridgePage.footer.poweredBy')}</span>
           <LayerZeroLogo className="w-[80px]" />
@@ -438,7 +440,7 @@ const BridgePage: React.FC = () => {
 
           <Icon name="open" className="ml-1 text-inherit" />
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };

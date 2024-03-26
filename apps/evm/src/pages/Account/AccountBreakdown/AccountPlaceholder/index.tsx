@@ -15,13 +15,13 @@ const AccountPlaceholder: React.FC = () => {
 
   return (
     <div css={styles.placeholderContainer}>
-      <div>
+      {/* <div>
         <img
           src={wallet}
           css={styles.wallet}
           alt={t('dashboard.connectWalletBanner.illustration.alt')}
         />
-      </div>
+      </div> */}
 
       <Typography css={styles.placeholderText} variant="h4">
         {t('accountPlaceholder.assetsWillAppearHere')}

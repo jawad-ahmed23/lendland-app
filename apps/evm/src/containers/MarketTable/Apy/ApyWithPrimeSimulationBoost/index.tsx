@@ -110,7 +110,7 @@ export const ApyWithPrimeSimulationBoost: React.FC<ApyWithPrimeSimulationBoostPr
               alt={t('marketTable.apy.primeSimulationBoost.primeLogoAlt')}
             />
 
-            <span className="text-green">{readableApyWithPrime}</span>
+            <span className="text-yellowDarker">{readableApyWithPrime}</span>
           </SenaryButton>
         </Tooltip>
       </div>

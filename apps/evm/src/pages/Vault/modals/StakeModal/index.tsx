@@ -64,7 +64,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
 
   return (
     <ActionModal
-      title={t('stakeModal.title', { tokenSymbol: stakedToken.symbol })}
+      title={t('stakeModal.title', { tokenSymbol: 'LELA' })} // stakedToken.symbol
       token={stakedToken}
       handleClose={handleClose}
       availableTokensMantissa={availableTokensData?.balanceMantissa || new BigNumber(0)}

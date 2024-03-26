@@ -52,7 +52,7 @@ const useGetMenuItems = () => {
         // Translation key: do not remove this comment
         // t('layout.menuItems.isolatedPools')
         i18nKey: 'layout.menuItems.isolatedPools',
-        iconName: 'fourDots',
+        iconName: 'isolatedPools',
       });
     }
 
@@ -97,7 +97,7 @@ const useGetMenuItems = () => {
         to: routes.xvs.path,
         // Translation key: do not remove this comment
         // t('layout.menuItems.xvs')
-        i18nKey: 'layout.menuItems.xvs',
+        i18nKey: 'layout.menuItems.lela',
         iconName: 'circledVenus',
       });
     }
@@ -108,7 +108,7 @@ const useGetMenuItems = () => {
         // Translation key: do not remove this comment
         // t('layout.menuItems.vai')
         i18nKey: 'layout.menuItems.vai',
-        iconName: 'vaiOutline',
+        iconName: 'vai',
       });
     }
 

@@ -18,7 +18,7 @@ export const theme = {
     // cards: '#1E2431',
     cards: '#07090e',
     grey: '#AAB3CA',
-    lightGrey: 'rgba(32, 39, 56, .4)',
+    lightGrey: '#2D3549',
     green: '#00C38E',
     red: '#E93D66',
     offWhite: '#FFFFFF',

@@ -239,7 +239,7 @@
     "internalErrorXvsToVrtConversionRatioUndefined": "xvsToVrtConversionRatio undefined",
     "withdraw": "Withdraw",
     "withdrawableAmount": "Withdrawable amount",
-    "withdrawXvs": "Withdraw XVS"
+    "withdrawXvs": "Withdraw LELA"
   },
   "dashboard": {
     "allTag": "All",
@@ -378,12 +378,13 @@
       "swap": "Swap",
       "vai": "VAI",
       "vaults": "Vaults",
-      "xvs": "XVS"
+      "xvs": "XVS",
+      "lela": "LELA"
     }
   },
   "legacyPool": {
-    "description": "Venus’ primary pool is composed of large-cap tokens that meet minimum liquidity requirements.",
-    "name": "Venus Core Pool"
+    "description": "LendLand’ primary pool is composed of large-cap tokens that meet minimum liquidity requirements.",
+    "name": "LendLand Core Pool"
   },
   "lunaUstWarningModal": {
     "closeButtonLabel": "Got it",
@@ -676,11 +677,11 @@
     "stakedTokens": {
       "infos": {
         "error": "To be eligible for Prime rewards, at least {{minimumXvsStaked}} XVS tokens must be staked.",
-        "label": "Qualified staked XVS",
+        "label": "Qualified staked LELA",
         "tooltip": "Up to {{maximumXvsStaked}} will be taken into account for your Prime rewards"
       },
       "textField": {
-        "label": "Staked XVS"
+        "label": "Staked LELA"
       }
     },
     "suppliedTokens": {
@@ -714,7 +715,7 @@
       "label": "Staked: <WhiteText>{{userStakedXvsTokens}} / {{minXvsToStakeForPrimeTokens}}</WhiteText>"
     },
     "promotionalTitle": "Boost your earnings by up to <GreenText>{{percentage}}</GreenText>",
-    "stakeButtonLabel": "Stake XVS",
+    "stakeButtonLabel": "Stake LELA",
     "tokensLeft": "<WhiteText>{{tokensLeft}}</WhiteText> prime tokens left",
     "waitForPrimeTitle": "{{claimWaitingPeriod}} until you can claim Prime rewards"
   },
@@ -1099,8 +1100,8 @@
     "delegateVotes": "Delegate votes",
     "delegateVoting": "Delegate voting",
     "delegateYourVoting": "2. <Anchor>Delegate your voting power</Anchor> to yourself or somebody else",
-    "depositXvs": "Deposit XVS",
-    "depositYourTokens": "1. <Link>Deposit your tokens</Link> in the XVS Vault ",
+    "depositXvs": "Deposit LELA",
+    "depositYourTokens": "1. <Link>Deposit your tokens</Link> in the XVS LELA",
     "enterContactAddress": "Enter contact address",
     "for": "For",
     "goToXvsSnapshot": "Go to XVS Snapshot",

@@ -50,6 +50,8 @@ export { default as vaiOutline } from './vaiOutline';
 export { default as fire } from './fire';
 export { default as lightening } from './lightening';
 export { default as fourDots } from './fourDots';
+export { default as isolatedPools } from './isolatedPools';
 export { default as bin } from './bin';
 export { default as telegram } from './telegram';
 export { default as bridge } from './bridge';
+export { default as vai } from './vai';

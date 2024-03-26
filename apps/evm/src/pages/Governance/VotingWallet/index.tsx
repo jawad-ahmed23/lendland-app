@@ -224,7 +224,7 @@ const VotingWallet: React.FC<VotingWalletProps> = ({ className }) => {
             </span>
           </Card>
 
-          <ButtonWrapper
+          {/* <ButtonWrapper
             variant="secondary"
             className="text-offWhite mt-6 w-full hover:no-underline"
             asChild
@@ -233,7 +233,7 @@ const VotingWallet: React.FC<VotingWalletProps> = ({ className }) => {
               <Icon className="mr-2 h-6 w-6" name="lightening" />
               {t('vote.goToXvsSnapshot')}
             </Link>
-          </ButtonWrapper>
+          </ButtonWrapper> */}
 
           <DelegateModal
             onClose={() => setDelegateModelIsOpen(false)}

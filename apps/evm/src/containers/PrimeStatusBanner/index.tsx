@@ -230,7 +230,9 @@ export const PrimeStatusBannerUi: React.FC<PrimeStatusBannerUiProps> = ({
                       Link: <Link to={primeCalculatorPagePath} />,
                     }}
                     values={{
-                      stakeDelta: readableStakeDeltaTokens,
+                      // stakeDelta: readableStakeDeltaTokens,
+                      // TODO: need to update XVS to LELA from readableStakeDeltaTokens
+                      stakeDelta: '1.00k LELA',
                       claimWaitingPeriod: readableClaimWaitingPeriod,
                     }}
                   />
@@ -242,7 +244,9 @@ export const PrimeStatusBannerUi: React.FC<PrimeStatusBannerUiProps> = ({
                       Link: <Link href={PRIME_DOC_URL} />,
                     }}
                     values={{
-                      stakeDelta: readableStakeDeltaTokens,
+                      // stakeDelta: readableStakeDeltaTokens,
+                      // TODO: need to update XVS to LELA from readableStakeDeltaTokens
+                      stakeDelta: '1.00k LELA',
                       claimWaitingPeriod: readableClaimWaitingPeriod,
                     }}
                   />

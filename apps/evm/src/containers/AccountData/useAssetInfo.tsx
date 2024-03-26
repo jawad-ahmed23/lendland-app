@@ -61,8 +61,8 @@ const useAssetInfo = ({
         return {
           label:
             distribution.type === 'prime'
-              ? t('assetInfo.primeApy', { tokenSymbol: distribution.token.symbol })
-              : t('assetInfo.distributionApy', { tokenSymbol: distribution.token.symbol }),
+              ? t('assetInfo.primeApy', { tokenSymbol: 'LELA' })  // distribution.token.symbol
+              : t('assetInfo.distributionApy', { tokenSymbol: 'LELA' }), // distribution.token.symbol
           iconSrc: distribution.token,
           children,
         };

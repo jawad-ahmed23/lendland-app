@@ -1,27 +1,15 @@
 import type { SVGProps } from 'react';
 
 const SvgHistory = (props: SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <path
-      d="m16.345 6.606 3.695.01.01-3.694"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M21.158 11.517A9.579 9.579 0 1 1 19.5 6.13"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-    />
-    <path
-      d="M11.5 7.5v4L15 15"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+  <svg fill="#fff" version="1.1" id="Vrstva_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+	 viewBox="0 0 57.73 57.54" {...props}>
+    <g>
+      <path d="M51.82,29.65c0,12.93-10.52,23.45-23.45,23.45c-12.93,0-23.45-10.52-23.45-23.45
+        c0-12.93,10.52-23.45,23.45-23.45c8.59,0,16.36,4.65,20.47,12.03h-6.86v3.11h12.25V9.1h-3.11v6.84
+        C46.36,8.03,37.79,3.09,28.37,3.09c-14.64,0-26.56,11.91-26.56,26.56c0,14.65,11.91,26.56,26.56,26.56
+        c14.65,0,26.56-11.91,26.56-26.56H51.82z"/>
+      <polygon points="26.82,15.67 26.82,31.46 37.43,42.08 39.63,39.87 29.93,30.17 29.93,15.67 	"/>
+    </g>
   </svg>
 );
 

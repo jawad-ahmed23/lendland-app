@@ -68,7 +68,8 @@ export const PoolUi: React.FC<PoolUiProps> = ({ pool }) => {
       <Notice
         css={styles.poolWarning}
         variant="warning"
-        description={t('pool.poolWarning', { poolName: pool.name })}
+        // description={t('pool.poolWarning', { poolName: pool.name })}
+        description={t('pool.poolWarning', { poolName: 'LendLand' })}
       />
 
       <Table pool={pool} />

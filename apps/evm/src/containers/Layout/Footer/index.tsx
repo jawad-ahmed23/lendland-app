@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-background p-4 sm:flex sm:h-14 sm:flex-none sm:items-center sm:justify-end sm:space-x-6 md:px-6 xl:px-10">
-      <Link className="text-offWhite mb-4 block text-sm underline sm:mb-0" href={VENUS_DOC_URL}>
+      {/* <Link className="text-offWhite mb-4 block text-sm underline sm:mb-0" href={VENUS_DOC_URL}>
         {t('footer.links.documentation')}
       </Link>
 
@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
         <IconLink iconName="twitter" href={VENUS_TWITTER_URL} />
         <IconLink iconName="medium" href={VENUS_MEDIUM_URL} />
         <IconLink iconName="github" href={VENUS_GITHUB_URL} />
-      </div>
+      </div> */}
     </footer>
   );
 };

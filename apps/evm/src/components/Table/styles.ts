@@ -176,8 +176,8 @@ export const useStyles = () => {
         fill: ${theme.palette.text.primary};
       }
       .Mui-active &.MuiTableSortLabel-icon {
-        fill: ${active ? theme.palette.interactive.success : theme.palette.text.primary};
-        color: ${active ? theme.palette.interactive.success : theme.palette.text.primary};
+        fill: ${active ? theme.palette.text.yellowDark : theme.palette.text.primary};
+        color: ${active ? theme.palette.text.yellowDark : theme.palette.text.primary};
       }
     `,
     cellWrapper: css`
