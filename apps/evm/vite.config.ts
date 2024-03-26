@@ -39,14 +39,14 @@ export default defineConfig(({ mode }) => {
             filename: 'bundleStats.html',
           }),
           // Put the Sentry vite plugin after all other plugins
-          sentryVitePlugin({
-            authToken: env.SENTRY_AUTH_TOKEN,
-            org: 'venus-protocol-km',
-            project: 'dapp',
-            release: {
-              name: APP_VERSION,
-            },
-          }),
+          // sentryVitePlugin({
+          //   authToken: env.SENTRY_AUTH_TOKEN,
+          //   org: 'venus-protocol-km',
+          //   project: 'dapp',
+          //   release: {
+          //     name: APP_VERSION,
+          //   },
+          // }),
         ],
       },
     },
