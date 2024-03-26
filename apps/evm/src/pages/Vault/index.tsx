@@ -38,7 +38,7 @@ const VaultPage: React.FC = () => {
   });
 
   // TODO: for `vaults={vaults[0] ? [vaults[0]] : []}`
-  return <VaultUi vaults={vaults[0] ? [vaults[0]] : []} isInitialLoading={isGetVaultsLoading} />;
+  return <VaultUi vaults={vaults[1] ? [vaults[1]] : []} isInitialLoading={isGetVaultsLoading} />;
 };
 
 export default VaultPage;
