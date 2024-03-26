@@ -322,7 +322,9 @@ const SwapPageUi: React.FC<SwapPageUiProps> = ({
           label={t('swapPage.walletBalance')}
           css={styles.getRow({ isLast: true })}
         >
-          {readableToTokenUserBalance}
+          {/* NOTE: add static data for now */}
+          {/* {readableToTokenUserBalance} */}
+          0 LELA
         </LabeledInlineContent>
 
         <SwapDetails

@@ -145,7 +145,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
                 variant === 'secondary' && 'font-normal',
               )}
             >
-              <span className="grow overflow-hidden text-ellipsis whitespace-nowrap text-left">
+              <span className="grow overflow-hidden text-ellipsis text-white whitespace-nowrap text-left">
                 {selectedOption &&
                   renderLabel({ label: selectedOption.label, isRenderedInButton: true })}
               </span>

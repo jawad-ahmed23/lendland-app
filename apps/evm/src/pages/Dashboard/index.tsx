@@ -51,7 +51,7 @@ const Dashboard: React.FC = () => {
       {/* <Banner /> */}
 
     {/* bg-cards */}
-    <div className='px-5 py-10 rounded-xl'>
+    <div className='px-5 py-10 bg-cards lg:bg-transparent rounded-xl'>
       <div className="mb-6 lg:flex lg:items-center lg:justify-between">
         <TextField
           className="mb-6 lg:order-2 lg:mb-0 lg:ml-auto lg:w-[300px]"

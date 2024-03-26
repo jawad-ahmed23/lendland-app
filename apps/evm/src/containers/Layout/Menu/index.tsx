@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import venusLogoSrc from 'assets/img/venusLogo.svg';
+import lendlandLogoSrc from 'assets/img/primeLogo.svg';
 // import venusLogoWithTextSrc from 'assets/img/venusLogoWithText.svg';
 import lendLandLogoWithTextSrc from 'assets/img/lendlandLogoWithText.png';
 import { Icon } from 'components';
@@ -42,7 +42,7 @@ export const Menu: React.FC = () => {
             className="mr-5 flex h-full flex-none items-center justify-center pl-4"
             to={routes.dashboard.path}
           >
-            <img src={venusLogoSrc} alt={t('layout.menu.venusLogoAlt')} className="h-7" />
+            <img src={lendlandLogoSrc} alt={t('layout.menu.venusLogoAlt')} className="h-7" />
           </Link>
 
           <div className="flex flex-1 items-center justify-center">
@@ -87,7 +87,7 @@ export const Menu: React.FC = () => {
           className="mb-4 flex w-full items-center justify-center py-2"
           to={routes.dashboard.path}
         >
-          <img src={venusLogoSrc} alt={t('layout.menu.venusLogoAlt')} className="h-9 xl:hidden" />
+          <img src={lendlandLogoSrc} alt={t('layout.menu.venusLogoAlt')} className="h-9 xl:hidden" />
 
           {/* <img
             src={venusLogoWithTextSrc}
