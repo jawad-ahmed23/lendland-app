@@ -21,7 +21,7 @@ const History = lazy(() => import('pages/History'));
 const IsolatedPools = lazy(() => import('pages/IsolatedPools'));
 const Proposal = lazy(() => import('pages/Proposal'));
 const Swap = lazy(() => import('pages/Swap'));
-const Vai = lazy(() => import('pages/Vai'));
+// const Vai = lazy(() => import('pages/Vai'));
 const Vaults = lazy(() => import('pages/Vault'));
 const Voter = lazy(() => import('pages/Voter'));
 const VoterLeaderboard = lazy(() => import('pages/VoterLeaderboard'));
@@ -251,7 +251,7 @@ const AppRoutes = () => {
           />
         )}
 
-        {vaiRouteEnabled && (
+        {/* {vaiRouteEnabled && (
           <Route
             path={Subdirectory.VAI}
             element={
@@ -260,7 +260,7 @@ const AppRoutes = () => {
               </PageSuspense>
             }
           />
-        )}
+        )} */}
 
         {bridgeEnabled && (
           <Route

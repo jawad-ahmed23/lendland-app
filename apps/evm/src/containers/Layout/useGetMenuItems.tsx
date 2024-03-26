@@ -102,15 +102,15 @@ const useGetMenuItems = () => {
       });
     }
 
-    if (vaiRouteEnabled) {
-      menuItems.push({
-        to: routes.vai.path,
-        // Translation key: do not remove this comment
-        // t('layout.menuItems.vai')
-        i18nKey: 'layout.menuItems.vai',
-        iconName: 'vai',
-      });
-    }
+    // if (vaiRouteEnabled) {
+    //   menuItems.push({
+    //     to: routes.vai.path,
+    //     // Translation key: do not remove this comment
+    //     // t('layout.menuItems.vai')
+    //     i18nKey: 'layout.menuItems.vai',
+    //     iconName: 'vai',
+    //   });
+    // }
 
     if (convertVrtRouteEnabled) {
       menuItems.push({
