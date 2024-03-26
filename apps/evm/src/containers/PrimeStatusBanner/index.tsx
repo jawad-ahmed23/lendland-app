@@ -274,8 +274,10 @@ export const PrimeStatusBannerUi: React.FC<PrimeStatusBannerUiProps> = ({
                   WhiteText: <span className="text-offWhite" />,
                 }}
                 values={{
-                  minXvsToStakeForPrimeTokens: readableMinXvsToStakeForPrimeTokens,
-                  userStakedXvsTokens: readableUserStakedXvsTokens,
+                  // minXvsToStakeForPrimeTokens: readableMinXvsToStakeForPrimeTokens,
+                  // userStakedXvsTokens: readableUserStakedXvsTokens,
+                  minXvsToStakeForPrimeTokens: '1.00k LELA',
+                  userStakedXvsTokens: '0 LELA',
                 }}
               />
             </p>
