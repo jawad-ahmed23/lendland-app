@@ -64,7 +64,9 @@ const Withdraw: React.FC<WithdrawProps> = ({
             xvsWithdrawableAmount.isNaN()
           }
           className="w-full"
-          onClick={onSubmit}
+          onClick={() => {}}
+          // NOTE: disable functionality for now
+          // onClick={onSubmit}
           loading={withdrawXvsLoading}
         >
           {t('convertVrt.withdrawXvs')}

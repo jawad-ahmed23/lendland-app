@@ -35,7 +35,9 @@ export const ApproveTokenSteps: React.FC<ApproveTokenStepsProps> = ({
       className={className}
       showApprovalSteps={showApproveTokenStep}
       isApprovalActionLoading={isApproveTokenLoading}
-      approvalAction={approveToken}
+      // NOTE: disable functionality for now
+      // approvalAction={approveToken}
+      approvalAction={async () => {}}
       firstStepLabel={t('approveTokenSteps.step1')}
       firstStepTooltip={isUsingSwap ? t('approveTokenSteps.approveTokenButton.tooltip') : undefined}
       firstStepButtonLabel={t('approveTokenSteps.approveTokenButton.text', {

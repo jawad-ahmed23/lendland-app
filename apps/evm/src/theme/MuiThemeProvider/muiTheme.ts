@@ -26,7 +26,8 @@ export const PALETTE = {
     primary: theme.colors.offWhite,
     secondary: theme.colors.grey,
     disabled: 'rgba(161, 161, 161, 1)',
-    yellowDark: theme.colors.yellowDark
+    yellowDark: theme.colors.yellowDark,
+    yellowDarker: theme.colors.yellowDarker
   },
   button: {
     main: theme.colors.blue,

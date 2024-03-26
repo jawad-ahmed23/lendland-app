@@ -187,7 +187,9 @@ export const VaultItemUi: React.FC<VaultItemUiProps> = ({
 
         <div css={styles.buttonsWrapper}>
           <Button
-            onClick={onStake}
+            onClick={() => {}}
+            // NOTE: disable functionality for now
+            // onClick={onStake}
             css={styles.button}
             variant="primary"
             disabled={isPaused || hasPendingWithdrawalsFromBeforeUpgrade}
@@ -197,7 +199,9 @@ export const VaultItemUi: React.FC<VaultItemUiProps> = ({
 
           {canWithdraw && (
             <Button
-              onClick={onWithdraw}
+              onClick={() => {}}
+              // NOTE: disable functionality for now
+              // onClick={onWithdraw}
               css={styles.button}
               variant="secondary"
               disabled={isPaused}

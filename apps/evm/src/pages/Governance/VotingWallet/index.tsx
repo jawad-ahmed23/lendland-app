@@ -183,7 +183,9 @@ const VotingWallet: React.FC<VotingWalletProps> = ({ className }) => {
         {showDelegateButton && (
           <PrimaryButton
             className="text-offWhite mt-6 sm:mt-0 sm:w-auto lg:mt-6 lg:w-full"
-            onClick={() => setDelegateModelIsOpen(true)}
+            // NOTE: disable functionality for now
+            // onClick={() => setDelegateModelIsOpen(true)}
+            onClick={() => {}}
             data-testid={TEST_IDS.delegateButton}
           >
             {previouslyDelegated ? t('vote.redelegate') : t('vote.delegate')}
@@ -215,7 +217,9 @@ const VotingWallet: React.FC<VotingWalletProps> = ({ className }) => {
                       role="button"
                       aria-pressed="false"
                       tabIndex={0}
-                      onClick={() => setDelegateModelIsOpen(true)}
+                      // NOTE: Disable functionality for now
+                      // onClick={() => setDelegateModelIsOpen(true)}
+                      onClick={() => {}}
                       data-testid={TEST_IDS.delegateYourVoting}
                     />
                   ),

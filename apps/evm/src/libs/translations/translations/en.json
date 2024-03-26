@@ -331,7 +331,7 @@
   "interactive": {
     "copy": {
       "walletAddress": "Wallet address",
-      "xvsAddress": "XVS address"
+      "xvsAddress": "LELA address"
     },
     "copyToClipboard": "{{name}} copied to clipboard"
   },

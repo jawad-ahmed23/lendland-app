@@ -307,7 +307,9 @@ export const PrimeStatusBannerUi: React.FC<PrimeStatusBannerUiProps> = ({
           {displayStakeButton && (
             <PrimaryButton
               data-testid={TEST_IDS.stakeXvsButton}
-              onClick={onRedirectToXvsVaultPage}
+              // NOTE: disable functionality for now
+              // onClick={onRedirectToXvsVaultPage}
+              onClick={() => {}}
               className="w-full whitespace-nowrap sm:w-auto"
             >
               {t('primeStatusBanner.stakeButtonLabel')}

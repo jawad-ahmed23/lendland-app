@@ -115,7 +115,9 @@ const SubmitSection: React.FC<SubmitSectionProps> = ({
           isRevokeFromTokenWalletSpendingLimitLoading ||
           !isFromTokenApproved
         }
-        onClick={onSubmit}
+        // NOTE: disable functionality for now
+        // onClick={onSubmit}
+        onClick={() => {}}
         loading={isSubmitting}
       >
         {submitButtonLabel}

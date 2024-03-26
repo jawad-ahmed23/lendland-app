@@ -307,7 +307,9 @@ const BridgePage: React.FC = () => {
 
             <TextButton
               className="mx-auto mb-2 flex h-auto flex-none p-2 md:mb-[3px]"
-              onClick={switchChains}
+              // NOTE: disable functionality for now
+              // onClick={switchChains}
+              onClick={() => {}}
               disabled={formState.isSubmitting}
               data-testid={TEST_IDS.switchChainsButton}
             >

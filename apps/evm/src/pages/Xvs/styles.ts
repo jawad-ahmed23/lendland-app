@@ -64,7 +64,7 @@ export const useStyles = () => {
       width: ${theme.shape.iconSize.xLarge}px;
       cursor: pointer;
       &:hover > svg {
-        color: ${theme.palette.button.medium};
+        color: ${theme.palette.text.yellowDarker};
       }
     `,
     iconSizeXl: `${theme.shape.iconSize.xLarge}px`,

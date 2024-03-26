@@ -87,13 +87,15 @@ export const HeaderUi: React.FC<HeaderProps & HeaderContainerProps> = ({
         <TokenIcon token={xvs} />
 
         <Typography
-          href={generateChainExplorerUrl({
-            hash: xvs.address,
-            urlType: 'token',
-            chainId,
-          })}
-          target="_blank"
-          rel="noreferrer"
+          // NOTE: disable functionality for now
+          // href={generateChainExplorerUrl({
+          //   hash: xvs.address,
+          //   urlType: 'token',
+          //   chainId,
+          // })}
+          href='#'
+          // target="_blank"
+          // rel="noreferrer"
           variant="small2"
           component="a"
           css={[styles.whiteText, styles.addressText]}

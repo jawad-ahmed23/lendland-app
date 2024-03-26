@@ -259,11 +259,13 @@ export const MarketUi: React.FC<MarketUiProps> = ({
         <Button
           className="w-full"
           onClick={() =>
-            openOperationModal({
-              vToken: asset.vToken,
-              poolComptrollerAddress,
-              initialActiveTabIndex: 0,
-            })
+            // NOTE: disable functionality for now
+            // openOperationModal({
+            //   vToken: asset.vToken,
+            //   poolComptrollerAddress,
+            //   initialActiveTabIndex: 0,
+            // })
+            () => {}
           }
         >
           {t('market.supplyButtonLabel')}
@@ -273,11 +275,13 @@ export const MarketUi: React.FC<MarketUiProps> = ({
         <SecondaryButton
           className="w-full"
           onClick={() =>
-            openOperationModal({
-              vToken: asset.vToken,
-              poolComptrollerAddress,
-              initialActiveTabIndex: 2,
-            })
+            // NOTE: disable functionality for now
+            // openOperationModal({
+            //   vToken: asset.vToken,
+            //   poolComptrollerAddress,
+            //   initialActiveTabIndex: 2,
+            // })
+            () => {}
           }
         >
           {t('market.borrowButtonLabel')}
