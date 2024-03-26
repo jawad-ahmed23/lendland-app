@@ -5,4 +5,4 @@ public/version.json
 src/clients/subgraph/gql/mainnet.ts
 src/clients/subgraph/gql/testnet.ts
 
-src/constants/version.ts
+# src/constants/version.ts
