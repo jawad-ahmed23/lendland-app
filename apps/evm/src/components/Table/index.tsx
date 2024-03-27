@@ -138,7 +138,8 @@ export function Table<R>({
       </MuiTableContainer>
 
       <TableCards
-        data={sortedData}
+        // @ts-ignore
+        data={sortedData.filter(row => row?.token?.symbol !== 'VAI')}
         isFetching={isFetching}
         rowKeyExtractor={rowKeyExtractor}
         rowOnClick={rowOnClick}
