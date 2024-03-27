@@ -31,7 +31,7 @@ export { default as burger } from './burger';
 export { default as arrowRight } from './arrowRight';
 export { default as blueArrowRight } from './blueArrowRight';
 export { default as venus } from './venus';
-export { default as circledVenus } from './circledVenus';
+export { default as circledLendLand } from './circledLendLand';
 export { default as predictions } from './predictions';
 export { default as wallet } from './wallet';
 export { default as check } from './check';

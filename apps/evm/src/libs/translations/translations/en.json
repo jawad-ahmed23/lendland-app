@@ -154,7 +154,7 @@
     "swap": "Swap",
     "vai": "VAI",
     "vaults": "Vaults",
-    "xvs": "XVS"
+    "lela": "LELA"
   },
   "bridgePage": {
     "amountInput": {
@@ -233,10 +233,10 @@
     "connectButton": "Connect wallet"
   },
   "convertVrt": {
-    "connectWalletToWithdrawXvs": "Please connect your wallet to withdraw XVS",
+    "connectWalletToWithdrawXvs": "Please connect your wallet to withdraw LELA",
     "convert": "Convert",
     "infoConversionCompleted": "Completed @ 16:00 on 3.31.23",
-    "internalErrorXvsToVrtConversionRatioUndefined": "xvsToVrtConversionRatio undefined",
+    "internalErrorXvsToVrtConversionRatioUndefined": "lelaToVrtConversionRatio undefined",
     "withdraw": "Withdraw",
     "withdrawableAmount": "Withdrawable amount",
     "withdrawXvs": "Withdraw LELA"
@@ -676,7 +676,7 @@
     },
     "stakedTokens": {
       "infos": {
-        "error": "To be eligible for Prime rewards, at least {{minimumXvsStaked}} XVS tokens must be staked.",
+        "error": "To be eligible for Prime rewards, at least {{minimumXvsStaked}} LELA tokens must be staked.",
         "label": "Qualified staked LELA",
         "tooltip": "Up to {{maximumXvsStaked}} will be taken into account for your Prime rewards"
       },
@@ -1104,7 +1104,7 @@
     "depositYourTokens": "1. <Link>Deposit your tokens</Link> in the LELA Vault",
     "enterContactAddress": "Enter contact address",
     "for": "For",
-    "goToXvsSnapshot": "Go to XVS Snapshot",
+    "goToXvsSnapshot": "Go to LELA Snapshot",
     "multichain": {
       "switchToBnb": "Switch to BNB chain",
       "votingOnlyEnabledOnBnb": "Voting is only available on the BNB chain"
@@ -1256,7 +1256,7 @@
       "availableTokensLabel": "Requestable {{tokenSymbol}}",
       "displayWithdrawalRequestListButton": "Withdrawal request list",
       "primeLossWarning": {
-        "message": "You will lose your Prime token if you withdraw this amount, as your stake in the XVS vault will go below the minimum required of {{minimumXvsStake}} to be eligible for Prime.",
+        "message": "You will lose your Prime token if you withdraw this amount, as your stake in the LELA vault will go below the minimum required of {{minimumXvsStake}} to be eligible for Prime.",
         "submitButtonLabel": "Lose Prime token and request withdrawal"
       },
       "submitButtonDisabledLabel": "Enter a valid amount to request",
@@ -1284,12 +1284,12 @@
   "xvs": {
     "columns": {
       "asset": "Asset",
-      "borrowXvsApy": "Borrow XVS APY",
-      "supplyXvsApy": "Supply XVS APY",
-      "xvsPerDay": "XVS Per Day"
+      "borrowXvsApy": "Borrow LELA APY",
+      "supplyXvsApy": "Supply LELA APY",
+      "xvsPerDay": "LELA Per Day"
     },
     "dailyDistribution": "Daily Distribution:",
-    "progressBar": "Xvs Distribution progress",
+    "progressBar": "Lela Distribution progress",
     "remaining": "Remaining:"
   },
   "xvsPage": {

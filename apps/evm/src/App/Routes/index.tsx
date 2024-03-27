@@ -25,7 +25,8 @@ const Swap = lazy(() => import('pages/Swap'));
 const Vaults = lazy(() => import('pages/Vault'));
 const Voter = lazy(() => import('pages/Voter'));
 const VoterLeaderboard = lazy(() => import('pages/VoterLeaderboard'));
-const Xvs = lazy(() => import('pages/Xvs'));
+// const Xvs = lazy(() => import('pages/Xvs'));
+const Lela = lazy(() => import('pages/Lela'));
 const PrimeCalculator = lazy(() => import('pages/PrimeCalculator'));
 const Bridge = lazy(() => import('pages/Bridge'));
 
@@ -35,7 +36,8 @@ const AppRoutes = () => {
   const historyRouteEnabled = useIsFeatureEnabled({ name: 'historyRoute' });
   const convertVrtRouteEnabled = useIsFeatureEnabled({ name: 'convertVrtRoute' });
   const vaiRouteEnabled = useIsFeatureEnabled({ name: 'vaiRoute' });
-  const xvsRouteEnabled = useIsFeatureEnabled({ name: 'xvsRoute' });
+  // const xvsRouteEnabled = useIsFeatureEnabled({ name: 'xvsRoute' });
+  const lelaRouteEnabled = useIsFeatureEnabled({ name: 'lelaRoute' });
   const bridgeEnabled = useIsFeatureEnabled({ name: 'bridgeRoute' });
   const primeCalculatorEnabled = useIsFeatureEnabled({
     name: 'primeCalculator',
@@ -218,12 +220,22 @@ const AppRoutes = () => {
           }
         />
 
-        {xvsRouteEnabled && (
+        {/* {xvsRouteEnabled && (
           <Route
             path={Subdirectory.XVS}
             element={
               <PageSuspense>
                 <Xvs />
+              </PageSuspense>
+            }
+          />
+        )} */}
+        {lelaRouteEnabled && (
+          <Route
+            path={Subdirectory.LELA}
+            element={
+              <PageSuspense>
+                <Lela />
               </PageSuspense>
             }
           />

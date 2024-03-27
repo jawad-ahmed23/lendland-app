@@ -12,7 +12,8 @@ const useGetMenuItems = () => {
   const historyRouteEnabled = useIsFeatureEnabled({ name: 'historyRoute' });
   const convertVrtRouteEnabled = useIsFeatureEnabled({ name: 'convertVrtRoute' });
   const vaiRouteEnabled = useIsFeatureEnabled({ name: 'vaiRoute' });
-  const xvsRouteEnabled = useIsFeatureEnabled({ name: 'xvsRoute' });
+  // const xvsRouteEnabled = useIsFeatureEnabled({ name: 'xvsRoute' });
+  const lelaRouteEnabled = useIsFeatureEnabled({ name: 'lelaRoute' });
   const bridgeRouteEnabled = useIsFeatureEnabled({ name: 'bridgeRoute' });
   const isolatedPoolsRouteEnabled = useIsFeatureEnabled({ name: 'isolatedPools' });
 
@@ -92,13 +93,23 @@ const useGetMenuItems = () => {
       iconName: 'market',
     });
 
-    if (xvsRouteEnabled) {
+    // if (xvsRouteEnabled) {
+    //   menuItems.push({
+    //     to: routes.xvs.path,
+    //     // Translation key: do not remove this comment
+    //     // t('layout.menuItems.xvs')
+    //     i18nKey: 'layout.menuItems.lela',
+    //     iconName: 'circledVenus',
+    //   });
+    // }
+
+    if (lelaRouteEnabled) {
       menuItems.push({
-        to: routes.xvs.path,
+        to: routes.lela.path,
         // Translation key: do not remove this comment
         // t('layout.menuItems.xvs')
         i18nKey: 'layout.menuItems.lela',
-        iconName: 'circledVenus',
+        iconName: 'circledLendLand',
       });
     }
 
@@ -140,7 +151,8 @@ const useGetMenuItems = () => {
     swapRouteEnabled,
     historyRouteEnabled,
     vaiRouteEnabled,
-    xvsRouteEnabled,
+    // xvsRouteEnabled,
+    lelaRouteEnabled,
     bridgeRouteEnabled,
     isolatedPoolsRouteEnabled,
   ]);

@@ -112,7 +112,9 @@ export const CreateProposal: React.FC<CreateProposalProps> = ({
 
   return (
     <Modal
-      isOpen={isOpen}
+      // isOpen={isOpen}
+      // NOTE: disable modal for now
+      isOpen={false}
       handleClose={handleClose}
       handleBackAction={currentStep !== 'proposal-create' ? handleBackAction : undefined}
       title={titles[currentStep]}

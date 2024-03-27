@@ -35,6 +35,8 @@ export function Table<R>({
   const styles = useStyles();
   const { formatTo } = useFormatTo();
 
+  
+
   const [order, setOrder] = useState<Order<R> | undefined>(initialOrder);
 
   const onRequestOrder = (column: TableColumn<R>) => {
@@ -59,6 +61,8 @@ export function Table<R>({
       order.orderBy.sortRows!(rowA, rowB, order.orderDirection),
     );
   }, [data, order]);
+
+  console.log(columns)
 
   return (
     <Paper css={styles.getRoot({ breakpoint })} className={className}>
@@ -88,7 +92,8 @@ export function Table<R>({
           )}
 
           <MuiTableBody>
-            {sortedData.map((row, rowIndex) => {
+            {/* @ts-ignore */}
+            {sortedData.filter(row => row?.token?.symbol !== 'VAI').map((row, rowIndex) => {
               const rowKey = rowKeyExtractor(row);
 
               const additionalProps = getRowHref

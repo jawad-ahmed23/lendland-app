@@ -122,8 +122,8 @@ export const Breadcrumbs: React.FC = () => {
         case Subdirectory.HISTORY:
           dom = t('breadcrumbs.history');
           break;
-        case Subdirectory.XVS:
-          dom = t('breadcrumbs.xvs');
+        case Subdirectory.LELA:
+          dom = t('breadcrumbs.lela');
           break;
         case Subdirectory.CONVERT_VRT:
           dom = t('breadcrumbs.convertVrt');

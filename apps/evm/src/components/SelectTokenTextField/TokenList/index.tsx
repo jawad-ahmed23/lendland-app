@@ -45,7 +45,9 @@ export const TokenList: React.FC<TokenListProps> = ({
   // top of the list
   const sortedTokenBalances = useMemo(
     () =>
-      [...tokenBalances].sort((a, b) => {
+      [...tokenBalances].filter((balances) => {
+        return balances.token.symbol !== 'VAI'
+      }).sort((a, b) => {
         const aIsNonNegative = a.balanceMantissa.isGreaterThan(0);
         const bIsNonNegative = b.balanceMantissa.isGreaterThan(0);
 

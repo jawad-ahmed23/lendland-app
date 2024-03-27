@@ -192,10 +192,11 @@ const GovernanceProposalUi: React.FC<GovernanceProposalProps> = ({
     }
   }, [proposalState, cancelDate, executedDate, endDate, etaDate]);
 
-  return (
+  return !proposalTitle.toLocaleLowerCase().includes('vai') && !proposalTitle.toLocaleLowerCase().includes('xvs') ? (
     <ProposalCard
       className={className}
-      linkTo={routes.governanceProposal.path.replace(':proposalId', proposalId.toString())}
+      // linkTo={routes.governanceProposal.path.replace(':proposalId', proposalId.toString())}
+      linkTo={'javascript:;'}
       proposalNumber={proposalId}
       headerRightItem={
         isUserConnected ? <Typography variant="small2">{voteStatusText}</Typography> : undefined
@@ -248,8 +249,8 @@ const GovernanceProposalUi: React.FC<GovernanceProposalProps> = ({
         ) : undefined
       }
       data-testid={TEST_IDS.governanceProposal(proposalId.toString())}
-    />
-  );
+    /> 
+  ) : null
 };
 
 const GovernanceProposal: React.FC<
