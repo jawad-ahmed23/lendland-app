@@ -3,7 +3,7 @@ import btcbLogo from 'libs/tokens/img/btcb.svg';
 import ethLogo from 'libs/tokens/img/eth.svg';
 import usdtLogo from 'libs/tokens/img/usdt.svg';
 import wbnbLogo from 'libs/tokens/img/wbnb.svg';
-import xvsLogo from 'libs/tokens/img/xvs.svg';
+// import xvsLogo from 'libs/tokens/img/xvs.svg';
 import lelaLogo from 'libs/tokens/img/lela.png';
 import type { Token } from 'types';
 
@@ -21,7 +21,7 @@ export const tokens: Token[] = [
     address: '0xc2931B1fEa69b6D6dA65a50363A8D75d285e4da9',
     decimals: 18,
     symbol: 'XVS',
-    asset: xvsLogo,
+    asset: lelaLogo,
   },
   {
     address: '0xc2931B1fEa69b6D6dA65a50363A8D75d285e4da9',

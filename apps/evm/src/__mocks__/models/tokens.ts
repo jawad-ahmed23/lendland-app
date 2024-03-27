@@ -24,15 +24,15 @@ export const lela: Token = {
 export const xvs: Token = {
   address: '0xB9e0E753630434d7863528cc73CB7AC638a7c8ff',
   decimals: 18,
-  symbol: 'XVS',
-  asset: xvsLogo,
+  symbol: 'LELA',
+  asset: lelaLogo,
 };
 
 export const vai: Token = {
   address: '0x5fFbE5302BadED40941A403228E6AD03f93752d9',
   decimals: 18,
-  symbol: 'VAI',
-  asset: vaiLogo,
+  symbol: 'LELA',
+  asset: lelaLogo,
 };
 
 export const vrt: Token = {

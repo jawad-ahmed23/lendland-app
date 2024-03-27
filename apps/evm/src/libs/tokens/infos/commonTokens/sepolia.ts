@@ -6,7 +6,7 @@ import usdtLogo from 'libs/tokens/img/usdt.svg';
 import wbtcLogo from 'libs/tokens/img/wbtc.svg';
 import wethLogo from 'libs/tokens/img/weth.svg';
 import wstEthLogo from 'libs/tokens/img/wstEth.svg';
-import xvsLogo from 'libs/tokens/img/xvs.svg';
+// import xvsLogo from 'libs/tokens/img/xvs.svg';
 import lelaLogo from 'libs/tokens/img/lela.png'
 import type { Token } from 'types';
 
@@ -30,7 +30,7 @@ export const tokens: Token[] = [
     address: '0x66ebd019E86e0af5f228a0439EBB33f045CBe63E',
     decimals: 18,
     symbol: 'XVS',
-    asset: xvsLogo,
+    asset: lelaLogo,
   },
   {
     address: '0x92A2928f5634BEa89A195e7BeCF0f0FEEDAB885b',

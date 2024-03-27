@@ -67,7 +67,8 @@ export const ApyWithPrimeSimulationBoost: React.FC<ApyWithPrimeSimulationBoostPr
   const values = {
     supplyBalance: readableReferenceSupplyBalance,
     borrowBalance: readableReferenceBorrowBalance,
-    xvsStaked: readableReferenceXvsStaked,
+    // xvsStaked: readableReferenceXvsStaked,
+    xvsStaked: '4.78k LELA',
   };
 
   return (

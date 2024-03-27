@@ -44,7 +44,7 @@ import wbnbLogo from 'libs/tokens/img/wbnb.svg';
 import winLogo from 'libs/tokens/img/win.svg';
 import wooLogo from 'libs/tokens/img/woo.svg';
 import xrpLogo from 'libs/tokens/img/xrp.svg';
-import xvsLogo from 'libs/tokens/img/xvs.svg';
+// import xvsLogo from 'libs/tokens/img/xvs.svg';
 import lelaLogo from 'libs/tokens/img/lela.png';
 import type { Token } from 'types';
 
@@ -67,13 +67,13 @@ export const tokens: Token[] = [
     address: '0xB9e0E753630434d7863528cc73CB7AC638a7c8ff',
     decimals: 18,
     symbol: 'XVS',
-    asset: xvsLogo,
+    asset: lelaLogo,
   },
   {
     address: '0x5fFbE5302BadED40941A403228E6AD03f93752d9',
     decimals: 18,
     symbol: 'VAI',
-    asset: vaiLogo,
+    asset: lelaLogo,
   },
   {
     address: '0x331F639B4F3CF6E391CD244e0b5027C5968Ec325',

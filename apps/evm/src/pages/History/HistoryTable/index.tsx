@@ -86,11 +86,12 @@ export const HistoryTableUi: React.FC<HistoryTableProps> = ({ transactions, isFe
         selectOptionLabel: t('history.columns.hash'),
         renderCell: transaction => (
           <Link
-            href={generateChainExplorerUrl({
-              hash: transaction.transactionHash,
-              urlType: 'tx',
-              chainId,
-            })}
+            // href={generateChainExplorerUrl({
+            //   hash: transaction.transactionHash,
+            //   urlType: 'tx',
+            //   chainId,
+            // })}
+            href='#'
             className="text-blue"
           >
             <EllipseAddress address={transaction.transactionHash} />
@@ -113,11 +114,12 @@ export const HistoryTableUi: React.FC<HistoryTableProps> = ({ transactions, isFe
         selectOptionLabel: t('history.columns.from'),
         renderCell: transaction => (
           <Link
-            href={generateChainExplorerUrl({
-              hash: transaction.from,
-              urlType: 'address',
-              chainId,
-            })}
+            // href={generateChainExplorerUrl({
+            //   hash: transaction.from,
+            //   urlType: 'address',
+            //   chainId,
+            // })}
+            href="#"
             className="text-blue"
           >
             <EllipseAddress address={transaction.from} />
@@ -131,11 +133,12 @@ export const HistoryTableUi: React.FC<HistoryTableProps> = ({ transactions, isFe
         renderCell: transaction =>
           transaction.to ? (
             <Link
-              href={generateChainExplorerUrl({
-                hash: transaction.to,
-                urlType: 'address',
-                chainId,
-              })}
+              // href={generateChainExplorerUrl({
+              //   hash: transaction.to,
+              //   urlType: 'address',
+              //   chainId,
+              // })}
+              href="#"
               className="text-blue"
             >
               <EllipseAddress address={transaction.to} />

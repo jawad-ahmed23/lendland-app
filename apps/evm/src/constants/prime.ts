@@ -1,9 +1,11 @@
 import BigNumber from 'bignumber.js';
 
-export const PRIME_DOC_URL = 'https://docs-v4.venus.io/whats-new/prime-yield';
+// export const PRIME_DOC_URL = 'https://docs-v4.venus.io/whats-new/prime-yield';
+export const PRIME_DOC_URL = '#';
 
-export const PRIME_APY_DOC_URL =
-  'https://docs-v4.venus.io/technical-reference/reference-technical-articles/prime#calculate-apr-associated-with-a-prime-market-and-user';
+// export const PRIME_APY_DOC_URL =
+//   'https://docs-v4.venus.io/technical-reference/reference-technical-articles/prime#calculate-apr-associated-with-a-prime-market-and-user';
+export const PRIME_APY_DOC_URL = '#';
 
 // TODO: add other tokens and update to use vToken addresses instead
 
