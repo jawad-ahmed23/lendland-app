@@ -81,20 +81,22 @@ export const VaultItemUi: React.FC<VaultItemUiProps> = ({
     () => [
       {
         title: t('vaultItem.stakingApr', { stakeTokenName: stakedToken.symbol }),
-        value: formatPercentageToReadableValue(stakingAprPercentage),
+        // value: formatPercentageToReadableValue(stakingAprPercentage),
+        value: '0%',
       },
       {
         title: t('vaultItem.dailyEmission'),
         value: (
           <>
             <TokenIcon css={styles.tokenIcon} token={rewardToken} />
-            {convertMantissaToTokens({
+            {/* {convertMantissaToTokens({
               value: dailyEmissionMantissa,
               token: rewardToken,
               returnInReadableFormat: true,
 
               addSymbol: false,
-            })}
+            })} */}
+            0
           </>
         ),
       },
@@ -103,13 +105,14 @@ export const VaultItemUi: React.FC<VaultItemUiProps> = ({
         value: (
           <>
             <TokenIcon css={styles.tokenIcon} token={stakedToken} />
-            {convertMantissaToTokens({
+            {/* {convertMantissaToTokens({
               value: totalStakedMantissa,
               token: stakedToken,
               returnInReadableFormat: true,
 
               addSymbol: false,
-            })}
+            })} */}
+            0
           </>
         ),
       },

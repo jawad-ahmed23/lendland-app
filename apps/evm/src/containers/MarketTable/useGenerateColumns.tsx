@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import { Typography } from '@mui/material';
-import BigNumber from 'bignumber.js';
-import { useMemo } from 'react';
+import { Typography } from "@mui/material";
+import BigNumber from "bignumber.js";
+import { useMemo } from "react";
 
 import {
   InfoIcon,
@@ -10,12 +10,12 @@ import {
   type TableColumn,
   Toggle,
   TokenIconWithSymbol,
-} from 'components';
-import PLACEHOLDER_KEY from 'constants/placeholderKey';
-import { routes } from 'constants/routing';
-import { Link } from 'containers/Link';
-import { useGetChainMetadata } from 'hooks/useGetChainMetadata';
-import { useTranslation } from 'libs/translations';
+} from "components";
+import PLACEHOLDER_KEY from "constants/placeholderKey";
+import { routes } from "constants/routing";
+import { Link } from "containers/Link";
+import { useGetChainMetadata } from "hooks/useGetChainMetadata";
+import { useTranslation } from "libs/translations";
 import {
   areAddressesEqual,
   compareBigNumbers,
@@ -25,11 +25,11 @@ import {
   formatPercentageToReadableValue,
   formatTokensToReadableValue,
   getCombinedDistributionApys,
-} from 'utilities';
+} from "utilities";
 
-import { Apy } from './Apy';
-import { useStyles } from './styles';
-import type { ColumnKey, PoolAsset } from './types';
+import { Apy } from "./Apy";
+import { useStyles } from "./styles";
+import type { ColumnKey, PoolAsset } from "./types";
 
 // Translation keys: do not remove this comment
 // t('marketTable.columnKeys.asset')
@@ -80,32 +80,37 @@ const useGenerateColumns = ({
   const columns: TableColumn<PoolAsset>[] = useMemo(
     () =>
       columnKeys.map((column, index) => {
-        let columnLabel: React.ReactNode | string = t(`marketTable.columnKeys.${column}`);
+        let columnLabel: React.ReactNode | string = t(
+          `marketTable.columnKeys.${column}`
+        );
 
-        if (column === 'borrowApy' || column === 'labeledBorrowApy') {
+        if (column === "borrowApy" || column === "labeledBorrowApy") {
           columnLabel = (
             <Trans
               i18nKey={`marketTable.columnKeys.${column}`}
               components={{
                 InfoIcon: (
                   <InfoIcon
-                    tooltip={t('marketTable.columnTooltips.borrowApy')}
+                    tooltip={t("marketTable.columnTooltips.borrowApy")}
                     css={styles.getColumnLabelInfoIcon({
-                      hasRightMargin: column === 'labeledBorrowApy',
+                      hasRightMargin: column === "labeledBorrowApy",
                     })}
                   />
                 ),
               }}
             />
           );
-        } else if (column === 'supplyApyLtv' || column === 'labeledSupplyApyLtv') {
+        } else if (
+          column === "supplyApyLtv" ||
+          column === "labeledSupplyApyLtv"
+        ) {
           columnLabel = (
             <Trans
               i18nKey={`marketTable.columnKeys.${column}`}
               components={{
                 InfoIcon: (
                   <InfoIcon
-                    tooltip={t('marketTable.columnTooltips.supplyApy')}
+                    tooltip={t("marketTable.columnTooltips.supplyApy")}
                     css={styles.getColumnLabelInfoIcon({
                       hasRightMargin: true,
                     })}
@@ -120,23 +125,27 @@ const useGenerateColumns = ({
           key: column,
           label: columnLabel,
           selectOptionLabel: t(`marketTable.columnSelectOptionLabel.${column}`),
-          align: index === 0 ? 'left' : 'right',
-          renderCell: poolAsset => {
-            if (column === 'asset') {
-              return <TokenIconWithSymbol token={poolAsset.vToken.underlyingToken} />;
+          align: index === 0 ? "left" : "right",
+          renderCell: (poolAsset) => {
+            if (column === "asset") {
+              return (
+                <TokenIconWithSymbol token={poolAsset.vToken.underlyingToken} />
+              );
             }
 
             if (
-              column === 'supplyApyLtv' ||
-              column === 'borrowApy' ||
-              column === 'labeledSupplyApyLtv' ||
-              column === 'labeledBorrowApy'
+              column === "supplyApyLtv" ||
+              column === "borrowApy" ||
+              column === "labeledSupplyApyLtv" ||
+              column === "labeledBorrowApy"
             ) {
+              // return <Apy asset={poolAsset} column={column} />;
               return <Apy asset={poolAsset} column={column} />;
             }
 
-            if (column === 'collateral') {
-              return poolAsset.collateralFactor || poolAsset.isCollateralOfUser ? (
+            if (column === "collateral") {
+              return poolAsset.collateralFactor ||
+                poolAsset.isCollateralOfUser ? (
                 <Toggle
                   onChange={() => collateralOnChange(poolAsset)}
                   value={poolAsset.isCollateralOfUser}
@@ -146,52 +155,56 @@ const useGenerateColumns = ({
               );
             }
 
-            if (column === 'liquidity') {
+            if (column === "liquidity") {
               return (
                 <LayeredValues
                   topValue={formatTokensToReadableValue({
-                    value: poolAsset.cashTokens,
+                    value: BigNumber("0"),
                     token: poolAsset.vToken.underlyingToken,
                   })}
                   bottomValue={formatCentsToReadableValue({
-                    value: poolAsset.liquidityCents,
+                    value: BigNumber("0"),
                   })}
                 />
               );
             }
 
-            if (column === 'price') {
+            if (column === "price") {
               const { tokenPriceCents } = poolAsset;
               const price = tokenPriceCents.isGreaterThan(PRICE_THRESHOLD)
                 ? tokenPriceCents
                 : new BigNumber(0);
-              return formatCentsToReadableValue({
-                value: price,
-                isTokenPrice: true,
-              });
+              // return formatCentsToReadableValue({
+              //   value: price,
+              //   isTokenPrice: true,
+              // });
+              return '$0';
             }
 
-            if (column === 'pool') {
+            if (column === "pool") {
               const to = areAddressesEqual(
                 corePoolComptrollerContractAddress,
-                poolAsset.pool.comptrollerAddress,
+                poolAsset.pool.comptrollerAddress
               )
                 ? routes.corePool.path
                 : routes.isolatedPool.path.replace(
-                    ':poolComptrollerAddress',
-                    poolAsset.pool.comptrollerAddress,
+                    ":poolComptrollerAddress",
+                    poolAsset.pool.comptrollerAddress
                   );
 
               return (
                 <div>
-                  <Link to={to} className="text-offWhite hover:text-blue text-sm underline">
+                  <Link
+                    to={to}
+                    className="text-offWhite hover:text-blue text-sm underline"
+                  >
                     {poolAsset.pool.name}
                   </Link>
                 </div>
               );
             }
 
-            if (column === 'userWalletBalance') {
+            if (column === "userWalletBalance") {
               return (
                 <LayeredValues
                   topValue={formatTokensToReadableValue({
@@ -205,7 +218,7 @@ const useGenerateColumns = ({
               );
             }
 
-            if (column === 'userSupplyBalance') {
+            if (column === "userSupplyBalance") {
               return (
                 <LayeredValues
                   topValue={formatTokensToReadableValue({
@@ -219,7 +232,7 @@ const useGenerateColumns = ({
               );
             }
 
-            if (column === 'userBorrowBalance') {
+            if (column === "userBorrowBalance") {
               return (
                 <LayeredValues
                   topValue={formatTokensToReadableValue({
@@ -233,7 +246,7 @@ const useGenerateColumns = ({
               );
             }
 
-            if (column === 'supplyBalance') {
+            if (column === "supplyBalance") {
               return (
                 <LayeredValues
                   topValue={formatTokensToReadableValue({
@@ -247,7 +260,7 @@ const useGenerateColumns = ({
               );
             }
 
-            if (column === 'borrowBalance') {
+            if (column === "borrowBalance") {
               return (
                 <LayeredValues
                   topValue={formatTokensToReadableValue({
@@ -261,7 +274,7 @@ const useGenerateColumns = ({
               );
             }
 
-            if (column === 'userPercentOfLimit') {
+            if (column === "userPercentOfLimit") {
               return (
                 <div css={styles.userPercentOfLimit}>
                   <ProgressBar
@@ -269,105 +282,140 @@ const useGenerateColumns = ({
                     max={100}
                     value={poolAsset.userPercentOfLimit}
                     step={1}
-                    ariaLabel={t('marketTable.columnKeys.userPercentOfLimit')}
+                    ariaLabel={t("marketTable.columnKeys.userPercentOfLimit")}
                     css={styles.percentOfLimitProgressBar}
                   />
 
                   <Typography variant="small2" css={styles.white}>
-                    {formatPercentageToReadableValue(poolAsset.userPercentOfLimit)}
+                    {formatPercentageToReadableValue(
+                      poolAsset.userPercentOfLimit
+                    )}
                   </Typography>
                 </div>
               );
             }
           },
           sortRows:
-            column === 'asset'
+            column === "asset"
               ? undefined
               : (rowA, rowB, direction) => {
-                  if (column === 'borrowApy' || column === 'labeledBorrowApy') {
+                  if (column === "borrowApy" || column === "labeledBorrowApy") {
                     const roaABorrowApy = rowA.borrowApyPercentage.minus(
-                      getCombinedDistributionApys({ asset: rowA }).totalBorrowApyPercentage,
+                      getCombinedDistributionApys({ asset: rowA })
+                        .totalBorrowApyPercentage
                     );
                     const roaBBorrowApy = rowB.borrowApyPercentage.minus(
-                      getCombinedDistributionApys({ asset: rowB }).totalBorrowApyPercentage,
+                      getCombinedDistributionApys({ asset: rowB })
+                        .totalBorrowApyPercentage
                     );
 
-                    return compareBigNumbers(roaABorrowApy, roaBBorrowApy, direction);
+                    return compareBigNumbers(
+                      roaABorrowApy,
+                      roaBBorrowApy,
+                      direction
+                    );
                   }
 
-                  if (column === 'supplyApyLtv' || column === 'labeledSupplyApyLtv') {
+                  if (
+                    column === "supplyApyLtv" ||
+                    column === "labeledSupplyApyLtv"
+                  ) {
                     const roaASupplyApy = rowA.supplyApyPercentage.plus(
-                      getCombinedDistributionApys({ asset: rowA }).totalSupplyApyPercentage,
+                      getCombinedDistributionApys({ asset: rowA })
+                        .totalSupplyApyPercentage
                     );
                     const roaBSupplyApy = rowB.supplyApyPercentage.plus(
-                      getCombinedDistributionApys({ asset: rowB }).totalSupplyApyPercentage,
+                      getCombinedDistributionApys({ asset: rowB })
+                        .totalSupplyApyPercentage
                     );
 
-                    return compareBigNumbers(roaASupplyApy, roaBSupplyApy, direction);
+                    return compareBigNumbers(
+                      roaASupplyApy,
+                      roaBSupplyApy,
+                      direction
+                    );
                   }
 
                   // Put rows of tokens that can't be enabled as collateral at the
                   // bottom of the list
-                  if (column === 'collateral' && rowA.collateralFactor === 0) return 1;
-                  if (column === 'collateral' && rowB.collateralFactor === 0) return -1;
+                  if (column === "collateral" && rowA.collateralFactor === 0)
+                    return 1;
+                  if (column === "collateral" && rowB.collateralFactor === 0)
+                    return -1;
                   // Sort other rows normally
-                  if (column === 'collateral') {
+                  if (column === "collateral") {
                     return compareBooleans(
                       rowA.isCollateralOfUser,
                       rowB.isCollateralOfUser,
-                      direction,
+                      direction
                     );
                   }
 
-                  if (column === 'liquidity') {
-                    return compareBigNumbers(rowA.liquidityCents, rowB.liquidityCents, direction);
+                  if (column === "liquidity") {
+                    return compareBigNumbers(
+                      rowA.liquidityCents,
+                      rowB.liquidityCents,
+                      direction
+                    );
                   }
 
-                  if (column === 'price') {
-                    return compareBigNumbers(rowA.tokenPriceCents, rowB.tokenPriceCents, direction);
+                  if (column === "price") {
+                    // return compareBigNumbers(
+                    //   rowA.tokenPriceCents,
+                    //   rowB.tokenPriceCents,
+                    //   direction
+                    // );
+                    return 0
                   }
 
-                  if (column === 'pool') {
-                    return compareStrings(rowA.pool.name, rowB.pool.name, direction);
+                  if (column === "pool") {
+                    return compareStrings(
+                      rowA.pool.name,
+                      rowB.pool.name,
+                      direction
+                    );
                   }
 
-                  if (column === 'userWalletBalance') {
+                  if (column === "userWalletBalance") {
                     return compareBigNumbers(
                       rowA.userWalletBalanceCents,
                       rowB.userWalletBalanceCents,
-                      direction,
+                      direction
                     );
                   }
 
-                  if (column === 'userSupplyBalance') {
+                  if (column === "userSupplyBalance") {
                     return compareBigNumbers(
                       rowA.userSupplyBalanceCents,
                       rowB.userSupplyBalanceCents,
-                      direction,
+                      direction
                     );
                   }
 
-                  if (column === 'userBorrowBalance' || column === 'userPercentOfLimit') {
+                  if (
+                    column === "userBorrowBalance" ||
+                    column === "userPercentOfLimit"
+                  ) {
                     return compareBigNumbers(
                       rowA.userBorrowBalanceCents,
                       rowB.userBorrowBalanceCents,
-                      direction,
+                      direction
                     );
                   }
 
-                  if (column === 'supplyBalance') {
+                  if (column === "supplyBalance") {
                     return compareBigNumbers(
                       rowA.supplyBalanceCents,
                       rowB.supplyBalanceCents,
-                      direction,
+                      direction
                     );
                   }
 
-                  if (column === 'borrowBalance') {
+                  if (column === "borrowBalance") {
                     return compareBigNumbers(
                       rowA.borrowBalanceCents,
                       rowB.borrowBalanceCents,
-                      direction,
+                      direction
                     );
                   }
 
@@ -375,7 +423,14 @@ const useGenerateColumns = ({
                 },
         };
       }),
-    [corePoolComptrollerContractAddress, columnKeys, Trans, t, collateralOnChange, styles],
+    [
+      corePoolComptrollerContractAddress,
+      columnKeys,
+      Trans,
+      t,
+      collateralOnChange,
+      styles,
+    ]
   );
 
   return columns;

@@ -27,19 +27,23 @@ export const HeaderUi: React.FC<HeaderProps> = ({
   const cells: Cell[] = [
     {
       label: t('market.totalSupply'),
-      value: formatCentsToReadableValue({ value: treasurySupplyBalanceCents }),
+      // value: formatCentsToReadableValue({ value: treasurySupplyBalanceCents }),
+      value: '$0',
     },
     {
       label: t('market.totalBorrow'),
-      value: formatCentsToReadableValue({ value: treasuryBorrowBalanceCents }),
+      // value: formatCentsToReadableValue({ value: treasuryBorrowBalanceCents }),
+      value: '$0',
     },
     {
       label: t('market.availableLiquidity'),
-      value: formatCentsToReadableValue({ value: treasuryLiquidityBalanceCents }),
+      // value: formatCentsToReadableValue({ value: treasuryLiquidityBalanceCents }),
+      value: '$0',
     },
     {
       label: t('market.totalTreasury'),
-      value: formatCentsToReadableValue({ value: treasuryBalanceCents }),
+      // value: formatCentsToReadableValue({ value: treasuryBalanceCents }),
+      value: '$0',
     },
   ];
 

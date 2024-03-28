@@ -34,7 +34,7 @@ describe('RepayForm', () => {
     );
 
     // await waitFor(() => getByText('1.00K XVS'));
-    await waitFor(() => getByText('1.00K LELA'));
+    await waitFor(() => getByText('0 LELA'));
   });
 
   it('disables submit button if amount entered in input is higher than user borrow balance', async () => {

@@ -68,18 +68,20 @@ export const ApyWithPrimeSimulationBoost: React.FC<ApyWithPrimeSimulationBoostPr
     supplyBalance: readableReferenceSupplyBalance,
     borrowBalance: readableReferenceBorrowBalance,
     // xvsStaked: readableReferenceXvsStaked,
-    xvsStaked: '4.78k LELA',
+    xvsStaked: '0 LELA',
   };
 
   return (
     <div>
       <p className="text-sm">
-        {readableApy}{' '}
-        <span className="text-grey text-sm">{type === 'supply' && <>/ {readableLtv}</>}</span>
+        {/* {readableApy}{' '} */}
+        {'0%'}{' '}
+        {/* <span className="text-grey text-sm">{type === 'supply' && <>/ {readableLtv}</>}</span> */}
+        <span className="text-grey text-sm">{type === 'supply' && <>/ {'0%'}</>}</span>
       </p>
 
       <div className="whitespace-nowrap">
-        <Tooltip
+        {/* <Tooltip
           className="inline-block align-middle"
           title={
             isPrimeCalculatorEnabled ? (
@@ -101,19 +103,20 @@ export const ApyWithPrimeSimulationBoost: React.FC<ApyWithPrimeSimulationBoostPr
             )
           }
         >
-          <SenaryButton
-            className="hover:border-lightGrey h-6 cursor-help rounded-full p-1"
-            onClick={e => e.stopPropagation()}
-          >
-            <img
-              src={primeLogoSrc}
-              className="mr-1 h-4"
-              alt={t('marketTable.apy.primeSimulationBoost.primeLogoAlt')}
-            />
+        </Tooltip> */}
+        <SenaryButton
+          className="hover:border-lightGrey h-6 cursor-help rounded-full p-1"
+          onClick={e => e.stopPropagation()}
+        >
+          <img
+            src={primeLogoSrc}
+            className="mr-1 h-4"
+            alt={t('marketTable.apy.primeSimulationBoost.primeLogoAlt')}
+          />
 
-            <span className="text-yellowDarker">{readableApyWithPrime}</span>
-          </SenaryButton>
-        </Tooltip>
+          {/* <span className="text-yellowDarker">{readableApyWithPrime}</span> */}
+          <span className="text-yellowDarker">{'0%'}</span>
+        </SenaryButton>
       </div>
     </div>
   );

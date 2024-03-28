@@ -1,22 +1,22 @@
 /** @jsxImportSource @emotion/react */
-import Paper from '@mui/material/Paper';
-import MuiTable from '@mui/material/Table';
-import MuiTableBody from '@mui/material/TableBody';
-import MuiTableCell from '@mui/material/TableCell';
-import MuiTableContainer from '@mui/material/TableContainer';
-import MuiTableRow from '@mui/material/TableRow';
-import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Paper from "@mui/material/Paper";
+import MuiTable from "@mui/material/Table";
+import MuiTableBody from "@mui/material/TableBody";
+import MuiTableCell from "@mui/material/TableCell";
+import MuiTableContainer from "@mui/material/TableContainer";
+import MuiTableRow from "@mui/material/TableRow";
+import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 
-import { useFormatTo } from 'hooks/useFormatTo';
+import { useFormatTo } from "hooks/useFormatTo";
 
-import { Spinner } from '../Spinner';
-import Head from './Head';
-import TableCards from './TableCards';
-import { useStyles } from './styles';
-import type { Order, TableColumn, TableProps } from './types';
+import { Spinner } from "../Spinner";
+import Head from "./Head";
+import TableCards from "./TableCards";
+import { useStyles } from "./styles";
+import type { Order, TableColumn, TableProps } from "./types";
 
-export * from './types';
+export * from "./types";
 
 export function Table<R>({
   columns,
@@ -35,15 +35,13 @@ export function Table<R>({
   const styles = useStyles();
   const { formatTo } = useFormatTo();
 
-  
-
   const [order, setOrder] = useState<Order<R> | undefined>(initialOrder);
 
   const onRequestOrder = (column: TableColumn<R>) => {
-    let newOrderDirection: 'asc' | 'desc' = 'desc';
+    let newOrderDirection: "asc" | "desc" = "desc";
 
     if (column.key === order?.orderBy.key) {
-      newOrderDirection = order?.orderDirection === 'asc' ? 'desc' : 'asc';
+      newOrderDirection = order?.orderDirection === "asc" ? "desc" : "asc";
     }
 
     setOrder({
@@ -58,11 +56,9 @@ export function Table<R>({
     }
 
     return [...data].sort((rowA, rowB) =>
-      order.orderBy.sortRows!(rowA, rowB, order.orderDirection),
+      order.orderBy.sortRows!(rowA, rowB, order.orderDirection)
     );
   }, [data, order]);
-
-  console.log(columns)
 
   return (
     <Paper css={styles.getRoot({ breakpoint })} className={className}>
@@ -73,7 +69,10 @@ export function Table<R>({
       )}
 
       <MuiTableContainer css={styles.getTableContainer({ breakpoint })}>
-        <MuiTable css={styles.table({ minWidth: minWidth ?? '0' })} aria-label={title}>
+        <MuiTable
+          css={styles.table({ minWidth: minWidth ?? "0" })}
+          aria-label={title}
+        >
           <Head
             columns={columns}
             orderBy={order?.orderBy}
@@ -92,54 +91,63 @@ export function Table<R>({
           )}
 
           <MuiTableBody>
-            {/* @ts-ignore */}
-            {sortedData.filter(row => row?.token?.symbol !== 'VAI').map((row, rowIndex) => {
-              const rowKey = rowKeyExtractor(row);
+            {sortedData
+              // @ts-ignore
+              .filter((row) => row?.token?.symbol !== "VAI")
+              .map((row, rowIndex) => {
+                const rowKey = rowKeyExtractor(row);
 
-              const additionalProps = getRowHref
-                ? {
-                    component: Link,
-                    to: formatTo({ to: getRowHref(row) }),
-                  }
-                : {};
+                const additionalProps = getRowHref
+                  ? {
+                      component: Link,
+                      to: formatTo({ to: getRowHref(row) }),
+                    }
+                  : {};
 
-              return (
-                <MuiTableRow
-                  hover
-                  key={rowKey}
-                  css={[styles.link, styles.getTableRow({ clickable: !!rowOnClick })]}
-                  onClick={
-                    !getRowHref && rowOnClick
-                      ? (e: React.MouseEvent<HTMLDivElement>) => rowOnClick(e, row)
-                      : undefined
-                  }
-                  {...additionalProps}
-                >
-                  {columns.map(column => {
-                    const cellContent = column.renderCell(row, rowIndex);
-                    const cellTitle = typeof cellContent === 'string' ? cellContent : undefined;
+                return (
+                  <MuiTableRow
+                    hover
+                    key={rowKey}
+                    css={[
+                      styles.link,
+                      styles.getTableRow({ clickable: !!rowOnClick }),
+                    ]}
+                    onClick={
+                      !getRowHref && rowOnClick
+                        ? (e: React.MouseEvent<HTMLDivElement>) =>
+                            rowOnClick(e, row)
+                        : undefined
+                    }
+                    {...additionalProps}
+                  >
+                    {columns.map((column) => {
+                      const cellContent = column.renderCell(row, rowIndex);
+                      const cellTitle =
+                        typeof cellContent === "string"
+                          ? cellContent
+                          : undefined;
 
-                    return (
-                      <MuiTableCell
-                        css={styles.cellWrapper}
-                        key={`${rowKey}-${column.key}`}
-                        title={cellTitle}
-                        align={column.align}
-                      >
-                        {cellContent}
-                      </MuiTableCell>
-                    );
-                  })}
-                </MuiTableRow>
-              );
-            })}
+                      return (
+                        <MuiTableCell
+                          css={styles.cellWrapper}
+                          key={`${rowKey}-${column.key}`}
+                          title={cellTitle}
+                          align={column.align}
+                        >
+                          {cellContent}
+                        </MuiTableCell>
+                      );
+                    })}
+                  </MuiTableRow>
+                );
+              })}
           </MuiTableBody>
         </MuiTable>
       </MuiTableContainer>
 
       <TableCards
         // @ts-ignore
-        data={sortedData.filter(row => row?.token?.symbol !== 'VAI')}
+        data={sortedData.filter((row) => row?.token?.symbol !== "VAI")}
         isFetching={isFetching}
         rowKeyExtractor={rowKeyExtractor}
         rowOnClick={rowOnClick}

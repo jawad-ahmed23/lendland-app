@@ -134,7 +134,8 @@ export const PrimeStatusBannerUi: React.FC<PrimeStatusBannerUiProps> = ({
             GreenText: <span className="text-green" />,
           }}
           values={{
-            percentage: readableApyBoostPercentage,
+            // percentage: readableApyBoostPercentage,
+            percentage: '0%',
           }}
         />
       );
@@ -232,7 +233,7 @@ export const PrimeStatusBannerUi: React.FC<PrimeStatusBannerUiProps> = ({
                     values={{
                       // stakeDelta: readableStakeDeltaTokens,
                       // TODO: need to update XVS to LELA from readableStakeDeltaTokens
-                      stakeDelta: '1.00k LELA',
+                      stakeDelta: '0 LELA',
                       claimWaitingPeriod: readableClaimWaitingPeriod,
                     }}
                   />
@@ -246,7 +247,7 @@ export const PrimeStatusBannerUi: React.FC<PrimeStatusBannerUiProps> = ({
                     values={{
                       // stakeDelta: readableStakeDeltaTokens,
                       // TODO: need to update XVS to LELA from readableStakeDeltaTokens
-                      stakeDelta: '1.00k LELA',
+                      stakeDelta: '0 LELA',
                       claimWaitingPeriod: readableClaimWaitingPeriod,
                     }}
                   />
@@ -276,7 +277,7 @@ export const PrimeStatusBannerUi: React.FC<PrimeStatusBannerUiProps> = ({
                 values={{
                   // minXvsToStakeForPrimeTokens: readableMinXvsToStakeForPrimeTokens,
                   // userStakedXvsTokens: readableUserStakedXvsTokens,
-                  minXvsToStakeForPrimeTokens: '1.00k LELA',
+                  minXvsToStakeForPrimeTokens: '0 LELA',
                   userStakedXvsTokens: '0 LELA',
                 }}
               />

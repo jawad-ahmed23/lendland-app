@@ -1,29 +1,32 @@
 /** @jsxImportSource @emotion/react */
-import { useMemo } from 'react';
+import { useMemo } from "react";
 
-import { Table, type TableProps, switchAriaLabel } from 'components';
-import useCollateral from 'hooks/useCollateral';
-import useOperationModal from 'hooks/useOperationModal';
-import { displayMutationError } from 'libs/errors';
-import { useLunaUstWarning } from 'libs/lunaUstWarning';
-import type { Pool } from 'types';
+import { Table, type TableProps, switchAriaLabel } from "components";
+import useCollateral from "hooks/useCollateral";
+import useOperationModal from "hooks/useOperationModal";
+import { displayMutationError } from "libs/errors";
+import { useLunaUstWarning } from "libs/lunaUstWarning";
+import type { Pool } from "types";
 
-import { useStyles } from './styles';
-import type { ColumnKey, PoolAsset } from './types';
-import useGenerateColumns from './useGenerateColumns';
+import { useStyles } from "./styles";
+import type { ColumnKey, PoolAsset } from "./types";
+import useGenerateColumns from "./useGenerateColumns";
 
 export interface MarketTableProps
   extends Partial<
-      Omit<TableProps<PoolAsset>, 'columns' | 'rowKeyIndex' | 'breakpoint' | 'initialOrder'>
+      Omit<
+        TableProps<PoolAsset>,
+        "columns" | "rowKeyIndex" | "breakpoint" | "initialOrder"
+      >
     >,
-    Pick<TableProps<PoolAsset>, 'breakpoint'> {
+    Pick<TableProps<PoolAsset>, "breakpoint"> {
   pools: Pool[];
   columns: ColumnKey[];
   initialOrder?: {
     orderBy: ColumnKey;
-    orderDirection: 'asc' | 'desc';
+    orderDirection: "asc" | "desc";
   };
-  marketType?: 'supply' | 'borrow';
+  marketType?: "supply" | "borrow";
   className?: string;
   testId?: string;
 }
@@ -42,7 +45,8 @@ export const MarketTable: React.FC<MarketTableProps> = ({
   const { OperationModal, openOperationModal } = useOperationModal();
   const { CollateralModal, toggleCollateral } = useCollateral();
 
-  const { userHasLunaOrUstCollateralEnabled, openLunaUstWarningModal } = useLunaUstWarning();
+  const { userHasLunaOrUstCollateralEnabled, openLunaUstWarningModal } =
+    useLunaUstWarning();
 
   const handleCollateralChange = async (poolAssetToUpdate: PoolAsset) => {
     try {
@@ -59,14 +63,14 @@ export const MarketTable: React.FC<MarketTableProps> = ({
   const poolAssets = useMemo(
     () =>
       pools.reduce((acc, pool) => {
-        const newPoolAssets: PoolAsset[] = pool.assets.map(asset => ({
+        const newPoolAssets: PoolAsset[] = pool.assets.map((asset) => ({
           ...asset,
           pool,
         }));
 
         return acc.concat(newPoolAssets);
       }, [] as PoolAsset[]),
-    [pools],
+    [pools]
   );
 
   const columns = useGenerateColumns({
@@ -79,7 +83,9 @@ export const MarketTable: React.FC<MarketTableProps> = ({
       return undefined;
     }
 
-    const oderByColumn = columns.find(column => column.key === initialOrder.orderBy);
+    const oderByColumn = columns.find(
+      (column) => column.key === initialOrder.orderBy
+    );
 
     return (
       oderByColumn && {
@@ -94,8 +100,8 @@ export const MarketTable: React.FC<MarketTableProps> = ({
     // collateral and is attempting to open the supply modal of other assets
     if (
       userHasLunaOrUstCollateralEnabled &&
-      row.vToken.underlyingToken.symbol !== 'LUNA' &&
-      row.vToken.underlyingToken.symbol !== 'UST'
+      row.vToken.underlyingToken.symbol !== "LUNA" &&
+      row.vToken.underlyingToken.symbol !== "UST"
     ) {
       e.preventDefault();
       e.stopPropagation();
@@ -112,7 +118,7 @@ export const MarketTable: React.FC<MarketTableProps> = ({
     openOperationModal({
       vToken: row.vToken,
       poolComptrollerAddress: row.pool.comptrollerAddress,
-      initialActiveTabIndex: marketType === 'supply' ? 0 : 2,
+      initialActiveTabIndex: marketType === "supply" ? 0 : 2,
     });
   };
 
@@ -122,7 +128,9 @@ export const MarketTable: React.FC<MarketTableProps> = ({
         columns={columns}
         data={poolAssets}
         css={styles.cardContentGrid}
-        rowKeyExtractor={row => `market-table-row-${marketType}-${row.vToken.address}`}
+        rowKeyExtractor={(row) =>
+          `market-table-row-${marketType}-${row.vToken.address}`
+        }
         // NOTE: disable functionality for now
         // rowOnClick={getRowHref ? undefined : rowOnClick}
         rowOnClick={undefined}

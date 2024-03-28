@@ -174,7 +174,7 @@ const AppRoutes = () => {
           )}
         </Route>
 
-        {historyRouteEnabled && (
+        {/* {historyRouteEnabled && (
           <Route
             path={Subdirectory.HISTORY}
             element={
@@ -183,7 +183,7 @@ const AppRoutes = () => {
               </PageSuspense>
             }
           />
-        )}
+        )} */}
 
         {/* TODO: refactor to use nested routes (see VEN-2235) */}
         <Route

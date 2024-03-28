@@ -84,7 +84,7 @@ const ProposalList: React.FC<ProposalListPageProps> = ({
     isPreviousData: isGetProposalsPreviousData,
   } = useGetProposals({
     page: currentPage,
-    limit: 10,
+    limit: 4,
     accountAddress,
   });
 
@@ -211,7 +211,7 @@ const ProposalList: React.FC<ProposalListPageProps> = ({
         )}
       </div>
 
-      {!!total && total > 0 && (
+      {/* {!!total && total > 0 && (
         <Pagination
           itemsCount={total}
           onChange={(nextIndex: number) => {
@@ -219,7 +219,7 @@ const ProposalList: React.FC<ProposalListPageProps> = ({
           }}
           itemsPerPageCount={limit}
         />
-      )}
+      )} */}
 
       {createProposalEnabled && showCreateProposalModal && (
         <CreateProposalModal

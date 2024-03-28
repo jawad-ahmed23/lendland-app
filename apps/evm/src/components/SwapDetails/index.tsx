@@ -137,7 +137,8 @@ export const SwapDetails: React.FC<SwapDetailsProps> = ({ swap, action, ...conta
       )}
 
       <LabeledInlineContent label={t('swapDetails.label.slippageTolerance')} css={styles.row}>
-        {readableSlippageTolerancePercentage}
+        {/* {readableSlippageTolerancePercentage} */}
+        {'0%'}
       </LabeledInlineContent>
 
       {swap && (

@@ -75,15 +75,15 @@ const useGetMenuItems = () => {
       });
     }
 
-    if (historyRouteEnabled) {
-      menuItems.push({
-        to: routes.history.path,
-        // Translation key: do not remove this comment
-        // t('layout.menuItems.history')
-        i18nKey: 'layout.menuItems.history',
-        iconName: 'history',
-      });
-    }
+    // if (historyRouteEnabled) {
+    //   menuItems.push({
+    //     to: routes.history.path,
+    //     // Translation key: do not remove this comment
+    //     // t('layout.menuItems.history')
+    //     i18nKey: 'layout.menuItems.history',
+    //     iconName: 'history',
+    //   });
+    // }
 
     menuItems.push({
       to: routes.governance.path,

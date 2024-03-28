@@ -1,14 +1,18 @@
-import { useMemo } from 'react';
+import { useMemo } from "react";
 
-import { LayeredValues } from 'components';
-import useFormatPercentageToReadableValue from 'hooks/useFormatPercentageToReadableValue';
-import { useGetToken } from 'libs/tokens';
-import type { Asset, PrimeDistribution, PrimeSimulationDistribution } from 'types';
-import { getCombinedDistributionApys } from 'utilities';
+import { LayeredValues } from "components";
+import useFormatPercentageToReadableValue from "hooks/useFormatPercentageToReadableValue";
+import { useGetToken } from "libs/tokens";
+import type {
+  Asset,
+  PrimeDistribution,
+  PrimeSimulationDistribution,
+} from "types";
+import { getCombinedDistributionApys } from "utilities";
 
-import type { ColumnKey } from '../types';
-import { ApyWithPrimeBoost } from './ApyWithPrimeBoost';
-import { ApyWithPrimeSimulationBoost } from './ApyWithPrimeSimulationBoost';
+import type { ColumnKey } from "../types";
+import { ApyWithPrimeBoost } from "./ApyWithPrimeBoost";
+import { ApyWithPrimeSimulationBoost } from "./ApyWithPrimeSimulationBoost";
 
 export interface ApyProps {
   asset: Asset;
@@ -16,12 +20,18 @@ export interface ApyProps {
 }
 
 export const Apy: React.FC<ApyProps> = ({ asset, column }) => {
-  const type = column === 'supplyApyLtv' || column === 'labeledSupplyApyLtv' ? 'supply' : 'borrow';
+  const type =
+    column === "supplyApyLtv" || column === "labeledSupplyApyLtv"
+      ? "supply"
+      : "borrow";
 
   const xvs = useGetToken({
-    symbol: 'XVS',
+    symbol: "XVS",
   });
-  const combinedDistributionApys = useMemo(() => getCombinedDistributionApys({ asset }), [asset]);
+  const combinedDistributionApys = useMemo(
+    () => getCombinedDistributionApys({ asset }),
+    [asset]
+  );
 
   const { primeDistribution, primeSimulationDistribution } = useMemo(() => {
     const result: {
@@ -29,12 +39,13 @@ export const Apy: React.FC<ApyProps> = ({ asset, column }) => {
       primeDistribution?: PrimeDistribution;
     } = {};
 
-    const distributions = type === 'borrow' ? asset.borrowDistributions : asset.supplyDistributions;
+    const distributions =
+      type === "borrow" ? asset.borrowDistributions : asset.supplyDistributions;
 
-    distributions.forEach(distribution => {
-      if (distribution.type === 'prime') {
+    distributions.forEach((distribution) => {
+      if (distribution.type === "prime") {
         result.primeDistribution = distribution;
-      } else if (distribution.type === 'primeSimulation') {
+      } else if (distribution.type === "primeSimulation") {
         result.primeSimulationDistribution = distribution;
       }
     });
@@ -43,9 +54,13 @@ export const Apy: React.FC<ApyProps> = ({ asset, column }) => {
   }, [asset.borrowDistributions, asset.supplyDistributions, type]);
 
   const apyPercentage =
-    type === 'borrow'
-      ? asset.borrowApyPercentage.minus(combinedDistributionApys.totalBorrowApyPercentage)
-      : asset.supplyApyPercentage.plus(combinedDistributionApys.totalSupplyApyPercentage);
+    type === "borrow"
+      ? asset.borrowApyPercentage.minus(
+          combinedDistributionApys.totalBorrowApyPercentage
+        )
+      : asset.supplyApyPercentage.plus(
+          combinedDistributionApys.totalSupplyApyPercentage
+        );
 
   const readableApy = useFormatPercentageToReadableValue({
     value: apyPercentage,
@@ -58,7 +73,7 @@ export const Apy: React.FC<ApyProps> = ({ asset, column }) => {
   // Display Prime boost
   if (primeDistribution?.apyPercentage?.isGreaterThan(0)) {
     const apyPercentageWithoutPrimeBoost =
-      type === 'borrow'
+      type === "borrow"
         ? apyPercentage.plus(primeDistribution.apyPercentage)
         : apyPercentage.minus(primeDistribution.apyPercentage);
 
@@ -90,10 +105,11 @@ export const Apy: React.FC<ApyProps> = ({ asset, column }) => {
   // No Prime boost or Prime boost simulation to display
 
   // Display supply APY
-  if (type === 'supply') {
+  if (type === "supply") {
     return <LayeredValues topValue={readableApy} bottomValue={readableLtv} />;
   }
 
   // Display borrow APY
-  return readableApy;
+  // return readableApy;
+  return '0%';
 };

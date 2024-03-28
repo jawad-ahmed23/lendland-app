@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { Typography } from '@mui/material';
-import type BigNumber from 'bignumber.js';
+import BigNumber from 'bignumber.js';
 import { useMemo } from 'react';
 
 import { useGetBalanceOf, useGetLegacyPool, useGetVenusVaiVaultDailyRate } from 'clients/api';
@@ -45,7 +45,7 @@ const XvsTableUi: React.FC<XvsTableProps> = ({ assets, isFetchingAssets, xvs }) 
         label: t('xvs.columns.asset'),
         selectOptionLabel: t('xvs.columns.asset'),
         renderCell: ({ token }) => {
-          return<TokenIconWithSymbol token={token} />
+          return <TokenIconWithSymbol token={token} />
         },
       },
       {
@@ -56,7 +56,8 @@ const XvsTableUi: React.FC<XvsTableProps> = ({ assets, isFetchingAssets, xvs }) 
         renderCell: ({ xvsPerDay }) => (
           <Typography variant="small1" css={[styles.whiteText, styles.fontWeight400]}>
             {formatTokensToReadableValue({
-              value: xvsPerDay,
+              // value: xvsPerDay,
+              value: BigNumber(0),
               token: xvs,
             })}
           </Typography>
@@ -71,7 +72,8 @@ const XvsTableUi: React.FC<XvsTableProps> = ({ assets, isFetchingAssets, xvs }) 
         align: 'right',
         renderCell: ({ xvsSupplyApy }) => (
           <Typography variant="small1" css={[styles.whiteText, styles.fontWeight400]}>
-            {formatPercentageToReadableValue(xvsSupplyApy)}
+            {/* {formatPercentageToReadableValue(xvsSupplyApy)} */}
+            {'0%'}
           </Typography>
         ),
         sortRows: (rowA, rowB, direction) =>
@@ -84,7 +86,8 @@ const XvsTableUi: React.FC<XvsTableProps> = ({ assets, isFetchingAssets, xvs }) 
         align: 'right',
         renderCell: ({ xvsBorrowApy }) => (
           <Typography variant="small1" css={[styles.whiteText, styles.fontWeight400]}>
-            {formatPercentageToReadableValue(xvsBorrowApy)}
+            {/* {formatPercentageToReadableValue(xvsBorrowApy)} */}
+            {'0%'}
           </Typography>
         ),
         sortRows: (rowA, rowB, direction) =>

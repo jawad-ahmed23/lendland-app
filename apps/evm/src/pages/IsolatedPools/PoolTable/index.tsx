@@ -74,10 +74,10 @@ export const PoolTableUi: React.FC<PoolTableProps> = ({ pools, isFetchingPools }
         label: t('pools.poolTable.columns.totalSupply'),
         selectOptionLabel: t('pools.poolTable.columns.totalSupply'),
         align: 'right',
-        renderCell: ({ poolTotalSupplyCents }) =>
-          formatCentsToReadableValue({
-            value: poolTotalSupplyCents,
-          }),
+        renderCell: ({ poolTotalSupplyCents }) => '$0',
+          // formatCentsToReadableValue({
+          //   value: poolTotalSupplyCents,
+          // }),
         sortRows: (rowA, rowB, direction) =>
           direction === 'asc'
             ? rowA.poolTotalSupplyCents.minus(rowB.poolTotalSupplyCents).toNumber()
@@ -88,10 +88,10 @@ export const PoolTableUi: React.FC<PoolTableProps> = ({ pools, isFetchingPools }
         label: t('pools.poolTable.columns.totalBorrow'),
         selectOptionLabel: t('pools.poolTable.columns.totalBorrow'),
         align: 'right',
-        renderCell: ({ poolTotalBorrowCents }) =>
-          formatCentsToReadableValue({
-            value: poolTotalBorrowCents,
-          }),
+        renderCell: ({ poolTotalBorrowCents }) => '$0',
+          // formatCentsToReadableValue({
+          //   value: poolTotalBorrowCents,
+          // }),
         sortRows: (rowA, rowB, direction) =>
           direction === 'asc'
             ? rowA.poolTotalBorrowCents.minus(rowB.poolTotalBorrowCents).toNumber()
@@ -102,10 +102,10 @@ export const PoolTableUi: React.FC<PoolTableProps> = ({ pools, isFetchingPools }
         label: t('pools.poolTable.columns.liquidity'),
         selectOptionLabel: t('pools.poolTable.columns.liquidity'),
         align: 'right',
-        renderCell: ({ poolTotalSupplyCents, poolTotalBorrowCents }) =>
-          formatCentsToReadableValue({
-            value: poolTotalSupplyCents.minus(poolTotalBorrowCents),
-          }),
+        renderCell: ({ poolTotalSupplyCents, poolTotalBorrowCents }) => '$0',
+          // formatCentsToReadableValue({
+          //   value: poolTotalSupplyCents.minus(poolTotalBorrowCents),
+          // }),
         sortRows: (rowA, rowB, direction) => {
           const poolALiquidityCents = rowA.poolTotalSupplyCents.minus(rowA.poolTotalBorrowCents);
           const poolBLiquidityCents = rowB.poolTotalSupplyCents.minus(rowB.poolTotalBorrowCents);

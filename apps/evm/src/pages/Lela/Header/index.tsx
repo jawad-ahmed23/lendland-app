@@ -100,7 +100,8 @@ export const HeaderUi: React.FC<HeaderProps & HeaderContainerProps> = ({
           component="a"
           css={[styles.whiteText, styles.addressText]}
         >
-          <EllipseAddress address={xvs.address} ellipseBreakpoint="xl" />
+          {/* <EllipseAddress address={xvs.address} ellipseBreakpoint="xl" /> */}
+          <EllipseAddress address={'0xb42097a978C1c5D3b87c3dF87b18Cbf59B393a29'} ellipseBreakpoint="xl" />
         </Typography>
 
         <div css={styles.copyIconContainer}>

@@ -38,25 +38,29 @@ export const PoolUi: React.FC<PoolUiProps> = ({ pool }) => {
     return [
       {
         label: t('pool.header.totalSupplyLabel'),
-        value: formatCentsToReadableValue({
-          value: totalSupplyCents,
-        }),
+        // value: formatCentsToReadableValue({
+        //   value: totalSupplyCents,
+        // }),
+        value: '0'
       },
       {
         label: t('pool.header.totalBorrowLabel'),
-        value: formatCentsToReadableValue({
-          value: totalBorrowCents,
-        }),
+        // value: formatCentsToReadableValue({
+        //   value: totalBorrowCents,
+        // }),
+        value: '0'
       },
       {
         label: t('pool.header.availableLiquidityLabel'),
-        value: formatCentsToReadableValue({
-          value: totalSupplyCents.minus(totalBorrowCents),
-        }),
+        // value: formatCentsToReadableValue({
+        //   value: totalSupplyCents.minus(totalBorrowCents),
+        // }),
+        value: '0'
       },
       {
         label: t('pool.header.assetsLabel'),
-        value: pool?.assets.length || PLACEHOLDER_KEY,
+        // value: pool?.assets.length || PLACEHOLDER_KEY,
+        value: '0',
       },
     ];
   }, [pool, t]);
