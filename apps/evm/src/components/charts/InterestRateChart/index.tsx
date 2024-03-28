@@ -39,10 +39,31 @@ export const InterestRateChart: React.FC<InterestRateChartProps> = ({
 
   const { t } = useTranslation();
 
+  
   return (
     <div css={sharedStyles.container} className={className}>
       <ResponsiveContainer>
-        <LineChart data={data} margin={sharedStyles.chartMargin}>
+        {/* data={data} */}
+        <LineChart 
+          data={[
+            {
+              borrowApyPercentage: 0,
+              supplyApyPercentage: 0,
+              utilizationRatePercentage: 0
+            },
+            {
+              borrowApyPercentage: 1,
+              supplyApyPercentage: 1,
+              utilizationRatePercentage: 1
+            },
+            {
+              borrowApyPercentage: 2,
+              supplyApyPercentage: 2,
+              utilizationRatePercentage: 2
+            },
+          ]} 
+          margin={sharedStyles.chartMargin}
+        >
           <XAxis
             dataKey="utilizationRatePercentage"
             axisLine={false}

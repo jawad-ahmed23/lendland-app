@@ -83,9 +83,9 @@ export const SwapDetails: React.FC<SwapDetailsProps> = ({ swap, action, ...conta
       return t('swapDetails.label.supply');
     }
 
-    return swap.direction === 'exactAmountIn'
-      ? t('swapDetails.label.minimumReceived')
-      : t('swapDetails.label.maximumSold');
+    // return swap.direction === 'exactAmountIn'
+    //   ? t('swapDetails.label.minimumReceived')
+    //   : t('swapDetails.label.maximumSold');
   };
 
   const getLastLineValue = () => {
@@ -126,7 +126,7 @@ export const SwapDetails: React.FC<SwapDetailsProps> = ({ swap, action, ...conta
 
   return (
     <div {...containerProps}>
-      {swap && (
+      {/* {swap && (
         <LabeledInlineContent label={t('swapDetails.label.exchangeRate')} css={styles.row}>
           {t('swapDetails.value.exchangeRate', {
             fromTokenSymbol: swap.fromToken.symbol,
@@ -134,7 +134,7 @@ export const SwapDetails: React.FC<SwapDetailsProps> = ({ swap, action, ...conta
             rate: readableExchangeRate,
           })}
         </LabeledInlineContent>
-      )}
+      )} */}
 
       <LabeledInlineContent label={t('swapDetails.label.slippageTolerance')} css={styles.row}>
         {/* {readableSlippageTolerancePercentage} */}
@@ -143,7 +143,7 @@ export const SwapDetails: React.FC<SwapDetailsProps> = ({ swap, action, ...conta
 
       {swap && (
         <>
-          <LabeledInlineContent
+          {/* <LabeledInlineContent
             label={t('swapDetails.label.priceImpact')}
             css={styles.row}
             tooltip={t('swapDetails.tooltip.priceImpact')}
@@ -155,11 +155,11 @@ export const SwapDetails: React.FC<SwapDetailsProps> = ({ swap, action, ...conta
             >
               {t('swapDetails.value.priceImpact', { priceImpact: readablePriceImpact })}
             </span>
-          </LabeledInlineContent>
-
+          </LabeledInlineContent> */}
+{/* 
           <LabeledInlineContent label={getLastLineLabel()} css={styles.row}>
             {getLastLineValue()}
-          </LabeledInlineContent>
+          </LabeledInlineContent> */}
         </>
       )}
     </div>

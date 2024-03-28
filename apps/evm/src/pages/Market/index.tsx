@@ -150,11 +150,13 @@ export const MarketUi: React.FC<MarketUiProps> = ({
       ? [
           {
             label: t('market.marketInfo.stats.supplierCountLabel'),
-            value: asset.supplierCount ?? '-',
+            // value: asset.supplierCount ?? '-',
+            value: '0',
           },
           {
             label: t('market.marketInfo.stats.borrowerCountLabel'),
-            value: asset.borrowerCount ?? '-',
+            // value: asset.borrowerCount ?? '-',
+            value: '0',
           },
         ]
       : [];
@@ -162,87 +164,98 @@ export const MarketUi: React.FC<MarketUiProps> = ({
     return [
       {
         label: t('market.marketInfo.stats.priceLabel'),
-        value: asset.tokenPriceCents
-          ? formatCentsToReadableValue({
-              value: asset.tokenPriceCents,
-              isTokenPrice: true,
-            })
-          : PLACEHOLDER_KEY,
+        // value: asset.tokenPriceCents
+        //   ? formatCentsToReadableValue({
+        //       value: asset.tokenPriceCents,
+        //       isTokenPrice: true,
+        //     })
+        //   : PLACEHOLDER_KEY,
+        value: '$0'
       },
       {
         label: t('market.marketInfo.stats.marketLiquidityLabel'),
-        value: formatCentsToReadableValue({
-          value: asset.liquidityCents,
-        }),
+        // value: formatCentsToReadableValue({
+        //   value: asset.liquidityCents,
+        // }),
+        value: '$0'
       },
-      ...participantCountRows,
+      // ...participantCountRows,
       {
         label: t('market.marketInfo.stats.supplyCapLabel'),
-        value: !asset.supplyCapTokens
-          ? t('market.marketInfo.stats.unlimitedSupplyCap')
-          : formatTokensToReadableValue({
-              value: asset.supplyCapTokens,
-              token: asset.vToken.underlyingToken,
-            }),
+        // value: !asset.supplyCapTokens
+        //   ? t('market.marketInfo.stats.unlimitedSupplyCap')
+        //   : formatTokensToReadableValue({
+        //       value: asset.supplyCapTokens,
+        //       token: asset.vToken.underlyingToken,
+        //     }),
+        value: '0 UST'
       },
       {
         label: t('market.marketInfo.stats.borrowCapLabel'),
-        value: !asset.borrowCapTokens
-          ? t('market.marketInfo.stats.unlimitedBorrowCap')
-          : formatTokensToReadableValue({
-              value: asset.borrowCapTokens,
-              token: asset.vToken.underlyingToken,
-            }),
+        // value: !asset.borrowCapTokens
+        //   ? t('market.marketInfo.stats.unlimitedBorrowCap')
+        //   : formatTokensToReadableValue({
+        //       value: asset.borrowCapTokens,
+        //       token: asset.vToken.underlyingToken,
+        //     }),
+        value: 'uncapped'
       },
       {
         label: t('market.marketInfo.stats.dailySupplyingInterestsLabel'),
-        value: formatCentsToReadableValue({
-          value: dailySupplyInterestsCents,
-        }),
+        // value: formatCentsToReadableValue({
+        //   value: dailySupplyInterestsCents,
+        // }),
+        value: '$0'
       },
       {
         label: t('market.marketInfo.stats.dailyBorrowingInterestsLabel'),
-        value: formatCentsToReadableValue({
-          value: dailyBorrowInterestsCents,
-        }),
+        // value: formatCentsToReadableValue({
+        //   value: dailyBorrowInterestsCents,
+        // }),
+        value: '$0'
       },
-      ...distributionRows,
+      // ...distributionRows,
       {
         label: t('market.marketInfo.stats.reserveTokensLabel'),
-        value: formatTokensToReadableValue({
-          value: asset.reserveTokens,
-          token: asset.vToken.underlyingToken,
-        }),
+        // value: formatTokensToReadableValue({
+        //   value: asset.reserveTokens,
+        //   token: asset.vToken.underlyingToken,
+        // }),
+        value: '0'
       },
       {
         label: t('market.marketInfo.stats.reserveFactorLabel'),
-        value: formatPercentageToReadableValue(asset.reserveFactor && asset.reserveFactor * 100),
+        // value: formatPercentageToReadableValue(asset.reserveFactor && asset.reserveFactor * 100),
+        value: '0%',
       },
       {
         label: t('market.marketInfo.stats.collateralFactorLabel'),
-        value: formatPercentageToReadableValue(
-          asset.collateralFactor && asset.collateralFactor * 100,
-        ),
+        // value: formatPercentageToReadableValue(
+        //   asset.collateralFactor && asset.collateralFactor * 100,
+        // ),
+        value: '0%'
       },
       {
         label: t('market.marketInfo.stats.mintedTokensLabel', {
           vTokenSymbol: asset.vToken.symbol,
         }),
-        value: formatTokensToReadableValue({
-          value: asset.supplyBalanceTokens.multipliedBy(asset.exchangeRateVTokens),
-          addSymbol: false,
-          token: asset.vToken,
-        }),
+        // value: formatTokensToReadableValue({
+        //   value: asset.supplyBalanceTokens.multipliedBy(asset.exchangeRateVTokens),
+        //   addSymbol: false,
+        //   token: asset.vToken,
+        // }),
+        value: '0B'
       },
       {
         label: t('market.marketInfo.stats.exchangeRateLabel'),
-        value: asset.exchangeRateVTokens
-          ? t('market.marketInfo.stats.exchangeRateValue', {
-              tokenSymbol: asset.vToken.underlyingToken.symbol,
-              vTokenSymbol: asset.vToken.symbol,
-              rate: asset.exchangeRateVTokens.dp(6).toFixed(),
-            })
-          : PLACEHOLDER_KEY,
+        // value: asset.exchangeRateVTokens
+        //   ? t('market.marketInfo.stats.exchangeRateValue', {
+        //       tokenSymbol: asset.vToken.underlyingToken.symbol,
+        //       vTokenSymbol: asset.vToken.symbol,
+        //       rate: asset.exchangeRateVTokens.dp(6).toFixed(),
+        //     })
+        //   : PLACEHOLDER_KEY,
+        value: 'N/A'
       },
     ];
   }, [

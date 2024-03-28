@@ -290,18 +290,19 @@ const SwapPageUi: React.FC<SwapPageUiProps> = ({
           value={formValues.toTokenAmountTokens}
           disabled={isSubmitting}
           data-testid={TEST_IDS.toTokenSelectTokenTextField}
-          onChange={amount =>
-            setFormValues(currentFormValues => ({
-              ...currentFormValues,
-              toTokenAmountTokens: amount,
-              // Reset fromTokenAmount field value if users resets toTokenAmount
-              // field value
-              fromTokenAmountTokens:
-                amount === ''
-                  ? initialFormValues.fromTokenAmountTokens
-                  : currentFormValues.fromTokenAmountTokens,
-              direction: 'exactAmountOut',
-            }))
+          onChange={amount => {
+              setFormValues(currentFormValues => ({
+                ...currentFormValues,
+                toTokenAmountTokens: amount,
+                // Reset fromTokenAmount field value if users resets toTokenAmount
+                // field value
+                fromTokenAmountTokens:
+                  amount === ''
+                    ? initialFormValues.fromTokenAmountTokens
+                    : currentFormValues.fromTokenAmountTokens,
+                direction: 'exactAmountOut',
+              }))
+            }
           }
           onChangeSelectedToken={token =>
             setFormValues(currentFormValues => ({

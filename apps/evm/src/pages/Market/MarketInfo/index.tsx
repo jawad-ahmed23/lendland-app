@@ -20,7 +20,8 @@ const MarketInfo: React.FC<MarketInfoProps> = ({ stats, testId }) => {
       <ul css={styles.itemList}>
         {stats.map(stat => (
           <li css={styles.item} key={`market-info-stat-${stat.label}`}>
-            <LabeledInlineContent label={stat.label}>
+            <LabeledInlineContent label={stat.label.replace("XVS", "LELA")}>
+              {/* <span css={styles.value}>{stat.value}</span> */}
               <span css={styles.value}>{stat.value}</span>
             </LabeledInlineContent>
           </li>

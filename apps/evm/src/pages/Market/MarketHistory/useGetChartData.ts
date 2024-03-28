@@ -25,15 +25,19 @@ const useGetChartData = ({ vToken }: { vToken: VToken }) => {
         const timestampMs = marketSnapshot.blockTimestamp * 1000;
 
         supplyChartData.push({
-          apyPercentage: +marketSnapshot.supplyApy,
+          // apyPercentage: +marketSnapshot.supplyApy,
+          apyPercentage: 0,
           timestampMs,
-          balanceCents: new BigNumber(marketSnapshot.totalSupplyCents),
+          balanceCents: new BigNumber(0),
+          // balanceCents: new BigNumber(marketSnapshot.totalSupplyCents),
         });
 
         borrowChartData.push({
-          apyPercentage: +marketSnapshot.borrowApy,
+          // apyPercentage: +marketSnapshot.borrowApy,
+          apyPercentage: 0,
           timestampMs,
-          balanceCents: new BigNumber(marketSnapshot.totalBorrowCents),
+          // balanceCents: new BigNumber(marketSnapshot.totalBorrowCents),
+          balanceCents: new BigNumber(0),
         });
       });
 

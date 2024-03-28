@@ -35,20 +35,23 @@ export const MarketHistory: React.FC<MarketHistoryProps> = ({ asset }) => {
     const stats: MarketCardProps['stats'] = [
       {
         label: t('market.supplyInfo.stats.totalSupply'),
-        value: formatCentsToReadableValue({
-          value: asset.supplyBalanceCents,
-        }),
+        // value: formatCentsToReadableValue({
+        //   value: asset.supplyBalanceCents,
+        // }),
+        value: '$0'
       },
       {
         label: t('market.supplyInfo.stats.apy'),
-        value: formatPercentageToReadableValue(asset.supplyApyPercentage),
+        // value: formatPercentageToReadableValue(asset.supplyApyPercentage),
+        value: '0.0%',
       },
     ];
 
     if (distributionApys) {
       stats.push({
         label: t('market.supplyInfo.stats.distributionApy'),
-        value: formatPercentageToReadableValue(distributionApys.supplyApyRewardsPercentage),
+        // value: formatPercentageToReadableValue(distributionApys.supplyApyRewardsPercentage),
+        value: '0.0%',
       });
     }
 
