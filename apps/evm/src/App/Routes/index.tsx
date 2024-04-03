@@ -1,46 +1,50 @@
-import { lazy, useEffect } from 'react';
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { lazy, useEffect } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
-import { PAGE_CONTAINER_ID } from 'constants/layout';
-import { Subdirectory, routes } from 'constants/routing';
-import { Layout } from 'containers/Layout';
-import { useIsFeatureEnabled } from 'hooks/useIsFeatureEnabled';
-import { useAccountAddress } from 'libs/wallet';
+import { PAGE_CONTAINER_ID } from "constants/layout";
+import { Subdirectory, routes } from "constants/routing";
+import { Layout } from "containers/Layout";
+import { useIsFeatureEnabled } from "hooks/useIsFeatureEnabled";
+import { useAccountAddress } from "libs/wallet";
 
-import PageSuspense from './PageSuspense';
+import PageSuspense from "./PageSuspense";
 
-const Dashboard = lazy(() => import('pages/Dashboard'));
-const Account = lazy(() => import('pages/Account'));
-const CorePoolMarket = lazy(() => import('pages/Market/CorePoolMarket'));
-const IsolatedPoolMarket = lazy(() => import('pages/Market/IsolatedPoolMarket'));
-const CorePool = lazy(() => import('pages/Pool/CorePool'));
-const IsolatedPool = lazy(() => import('pages/Pool/IsolatedPool'));
-const ConvertVrt = lazy(() => import('pages/ConvertVrt'));
-const Governance = lazy(() => import('pages/Governance'));
-const History = lazy(() => import('pages/History'));
-const IsolatedPools = lazy(() => import('pages/IsolatedPools'));
-const Proposal = lazy(() => import('pages/Proposal'));
-const Swap = lazy(() => import('pages/Swap'));
+const Dashboard = lazy(() => import("pages/Dashboard"));
+const Account = lazy(() => import("pages/Account"));
+const CorePoolMarket = lazy(() => import("pages/Market/CorePoolMarket"));
+const IsolatedPoolMarket = lazy(
+  () => import("pages/Market/IsolatedPoolMarket")
+);
+const CorePool = lazy(() => import("pages/Pool/CorePool"));
+const IsolatedPool = lazy(() => import("pages/Pool/IsolatedPool"));
+const ConvertVrt = lazy(() => import("pages/ConvertVrt"));
+const Governance = lazy(() => import("pages/Governance"));
+const History = lazy(() => import("pages/History"));
+const IsolatedPools = lazy(() => import("pages/IsolatedPools"));
+const Proposal = lazy(() => import("pages/Proposal"));
+const Swap = lazy(() => import("pages/Swap"));
 // const Vai = lazy(() => import('pages/Vai'));
-const Vaults = lazy(() => import('pages/Vault'));
-const Voter = lazy(() => import('pages/Voter'));
-const VoterLeaderboard = lazy(() => import('pages/VoterLeaderboard'));
+const Vaults = lazy(() => import("pages/Vault"));
+const Voter = lazy(() => import("pages/Voter"));
+const VoterLeaderboard = lazy(() => import("pages/VoterLeaderboard"));
 // const Xvs = lazy(() => import('pages/Xvs'));
-const Lela = lazy(() => import('pages/Lela'));
-const PrimeCalculator = lazy(() => import('pages/PrimeCalculator'));
-const Bridge = lazy(() => import('pages/Bridge'));
+const Lela = lazy(() => import("pages/Lela"));
+const PrimeCalculator = lazy(() => import("pages/PrimeCalculator"));
+const Bridge = lazy(() => import("pages/Bridge"));
 
 const AppRoutes = () => {
   const { accountAddress } = useAccountAddress();
-  const swapRouteEnabled = useIsFeatureEnabled({ name: 'swapRoute' });
-  const historyRouteEnabled = useIsFeatureEnabled({ name: 'historyRoute' });
-  const convertVrtRouteEnabled = useIsFeatureEnabled({ name: 'convertVrtRoute' });
-  const vaiRouteEnabled = useIsFeatureEnabled({ name: 'vaiRoute' });
+  const swapRouteEnabled = useIsFeatureEnabled({ name: "swapRoute" });
+  const historyRouteEnabled = useIsFeatureEnabled({ name: "historyRoute" });
+  // const convertVrtRouteEnabled = useIsFeatureEnabled({
+  //   name: "convertVrtRoute",
+  // });
+  const vaiRouteEnabled = useIsFeatureEnabled({ name: "vaiRoute" });
   // const xvsRouteEnabled = useIsFeatureEnabled({ name: 'xvsRoute' });
-  const lelaRouteEnabled = useIsFeatureEnabled({ name: 'lelaRoute' });
-  const bridgeEnabled = useIsFeatureEnabled({ name: 'bridgeRoute' });
+  const lelaRouteEnabled = useIsFeatureEnabled({ name: "lelaRoute" });
+  const bridgeEnabled = useIsFeatureEnabled({ name: "bridgeRoute" });
   const primeCalculatorEnabled = useIsFeatureEnabled({
-    name: 'primeCalculator',
+    name: "primeCalculator",
   });
   const location = useLocation();
 
@@ -74,7 +78,10 @@ const AppRoutes = () => {
             />
           )}
 
-          <Route path="*" element={<Navigate to={Subdirectory.DASHBOARD} replace />} />
+          <Route
+            path="*"
+            element={<Navigate to={Subdirectory.DASHBOARD} replace />}
+          />
         </Route>
 
         {!!accountAddress && (
@@ -241,7 +248,7 @@ const AppRoutes = () => {
           />
         )}
 
-        {convertVrtRouteEnabled && (
+        {/* {convertVrtRouteEnabled && (
           <Route
             path={Subdirectory.CONVERT_VRT}
             element={
@@ -250,7 +257,7 @@ const AppRoutes = () => {
               </PageSuspense>
             }
           />
-        )}
+        )} */}
 
         {swapRouteEnabled && (
           <Route
@@ -286,8 +293,14 @@ const AppRoutes = () => {
         )}
 
         {/* Redirect to Dashboard if no route matches */}
-        <Route index element={<Navigate to={Subdirectory.DASHBOARD} replace />} />
-        <Route path="*" element={<Navigate to={Subdirectory.DASHBOARD} replace />} />
+        <Route
+          index
+          element={<Navigate to={Subdirectory.DASHBOARD} replace />}
+        />
+        <Route
+          path="*"
+          element={<Navigate to={Subdirectory.DASHBOARD} replace />}
+        />
       </Route>
     </Routes>
   );

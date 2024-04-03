@@ -14,7 +14,8 @@ const formatPercentageToReadableValue = (value: number | string | BigNumber | un
   }
 
   const wrappedValue = new BigNumber(value);
-  const absoluteValue = wrappedValue.absoluteValue();
+  // const absoluteValue = wrappedValue.absoluteValue();
+  const absoluteValue = BigNumber(0);
   const isNegative = wrappedValue.isNegative();
   let readableValue: string;
 
@@ -22,8 +23,8 @@ const formatPercentageToReadableValue = (value: number | string | BigNumber | un
     readableValue = '0';
   } else if (absoluteValue.isGreaterThan(MAX_VALUE)) {
     readableValue = `${isNegative ? '< -' : '> '}${new BigNumber(MAX_VALUE).toFormat()}`;
-  } else if (absoluteValue.isLessThan(MIN_VALUE)) {
-    readableValue = `< ${new BigNumber(MIN_VALUE).toFormat()}`;
+  // } else if (absoluteValue.isLessThan(MIN_VALUE)) {
+    // readableValue = `< ${new BigNumber(MIN_VALUE).toFormat()}`;
   } else {
     const decimalPlaces = getSmartDecimalPlaces({
       value: absoluteValue,

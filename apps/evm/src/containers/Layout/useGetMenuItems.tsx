@@ -1,21 +1,25 @@
-import { useMemo } from 'react';
+import { useMemo } from "react";
 
-import { routes } from 'constants/routing';
-import { useIsFeatureEnabled } from 'hooks/useIsFeatureEnabled';
-import { useAccountAddress } from 'libs/wallet';
+import { routes } from "constants/routing";
+import { useIsFeatureEnabled } from "hooks/useIsFeatureEnabled";
+import { useAccountAddress } from "libs/wallet";
 
-import type { MenuItem } from './types';
+import type { MenuItem } from "./types";
 
 const useGetMenuItems = () => {
   const { accountAddress } = useAccountAddress();
-  const swapRouteEnabled = useIsFeatureEnabled({ name: 'swapRoute' });
-  const historyRouteEnabled = useIsFeatureEnabled({ name: 'historyRoute' });
-  const convertVrtRouteEnabled = useIsFeatureEnabled({ name: 'convertVrtRoute' });
-  const vaiRouteEnabled = useIsFeatureEnabled({ name: 'vaiRoute' });
+  const swapRouteEnabled = useIsFeatureEnabled({ name: "swapRoute" });
+  const historyRouteEnabled = useIsFeatureEnabled({ name: "historyRoute" });
+  // const convertVrtRouteEnabled = useIsFeatureEnabled({
+  //   name: "convertVrtRoute",
+  // });
+  const vaiRouteEnabled = useIsFeatureEnabled({ name: "vaiRoute" });
   // const xvsRouteEnabled = useIsFeatureEnabled({ name: 'xvsRoute' });
-  const lelaRouteEnabled = useIsFeatureEnabled({ name: 'lelaRoute' });
-  const bridgeRouteEnabled = useIsFeatureEnabled({ name: 'bridgeRoute' });
-  const isolatedPoolsRouteEnabled = useIsFeatureEnabled({ name: 'isolatedPools' });
+  const lelaRouteEnabled = useIsFeatureEnabled({ name: "lelaRoute" });
+  const bridgeRouteEnabled = useIsFeatureEnabled({ name: "bridgeRoute" });
+  const isolatedPoolsRouteEnabled = useIsFeatureEnabled({
+    name: "isolatedPools",
+  });
 
   return useMemo(() => {
     const menuItems: MenuItem[] = [
@@ -23,10 +27,18 @@ const useGetMenuItems = () => {
         to: routes.dashboard.path,
         // Translation key: do not remove this comment
         // t('layout.menuItems.dashboard')
-        i18nKey: 'layout.menuItems.dashboard',
-        iconName: 'dashboard',
+        i18nKey: "layout.menuItems.dashboard",
+        iconName: "dashboard",
       },
     ];
+
+    menuItems.push({
+      to: routes.vaults.path,
+      // Translation key: do not remove this comment
+      // t('layout.menuItems.vaults')
+      i18nKey: "layout.menuItems.vaults",
+      iconName: "vault",
+    });
 
     // Insert account page if wallet is connected
     if (accountAddress) {
@@ -34,8 +46,8 @@ const useGetMenuItems = () => {
         to: routes.account.path,
         // Translation key: do not remove this comment
         // t('layout.menuItems.account')
-        i18nKey: 'layout.menuItems.account',
-        iconName: 'person',
+        i18nKey: "layout.menuItems.account",
+        iconName: "person",
       });
     }
 
@@ -43,8 +55,8 @@ const useGetMenuItems = () => {
       to: routes.corePool.path,
       // Translation key: do not remove this comment
       // t('layout.menuItems.corePool')
-      i18nKey: 'layout.menuItems.corePool',
-      iconName: 'venus',
+      i18nKey: "layout.menuItems.corePool",
+      iconName: "venus",
     });
 
     if (isolatedPoolsRouteEnabled) {
@@ -52,28 +64,20 @@ const useGetMenuItems = () => {
         to: routes.isolatedPools.path,
         // Translation key: do not remove this comment
         // t('layout.menuItems.isolatedPools')
-        i18nKey: 'layout.menuItems.isolatedPools',
-        iconName: 'isolatedPools',
+        i18nKey: "layout.menuItems.isolatedPools",
+        iconName: "isolatedPools",
       });
     }
 
-    menuItems.push({
-      to: routes.vaults.path,
-      // Translation key: do not remove this comment
-      // t('layout.menuItems.vaults')
-      i18nKey: 'layout.menuItems.vaults',
-      iconName: 'vault',
-    });
-
-    if (swapRouteEnabled) {
-      menuItems.push({
-        to: routes.swap.path,
-        // Translation key: do not remove this comment
-        // t('layout.menuItems.swap')
-        i18nKey: 'layout.menuItems.swap',
-        iconName: 'convert',
-      });
-    }
+    // if (swapRouteEnabled) {
+    //   menuItems.push({
+    //     to: routes.swap.path,
+    //     // Translation key: do not remove this comment
+    //     // t('layout.menuItems.swap')
+    //     i18nKey: "layout.menuItems.swap",
+    //     iconName: "convert",
+    //   });
+    // }
 
     // if (historyRouteEnabled) {
     //   menuItems.push({
@@ -89,9 +93,20 @@ const useGetMenuItems = () => {
       to: routes.governance.path,
       // Translation key: do not remove this comment
       // t('layout.menuItems.governance')
-      i18nKey: 'layout.menuItems.governance',
-      iconName: 'market',
+      i18nKey: "layout.menuItems.governance",
+      iconName: "market",
     });
+
+    if (bridgeRouteEnabled) {
+      menuItems.push({
+        to: routes.bridge.path,
+        // isNew: true,
+        // Translation key: do not remove this comment
+        // t('layout.menuItems.bridge')
+        i18nKey: "layout.menuItems.bridge",
+        iconName: "bridge",
+      });
+    }
 
     // if (xvsRouteEnabled) {
     //   menuItems.push({
@@ -108,8 +123,8 @@ const useGetMenuItems = () => {
         to: routes.lela.path,
         // Translation key: do not remove this comment
         // t('layout.menuItems.xvs')
-        i18nKey: 'layout.menuItems.lela',
-        iconName: 'circledLendLand',
+        i18nKey: "layout.menuItems.lela",
+        iconName: "circledLendLand",
       });
     }
 
@@ -123,31 +138,20 @@ const useGetMenuItems = () => {
     //   });
     // }
 
-    if (convertVrtRouteEnabled) {
-      menuItems.push({
-        to: routes.convertVrt.path,
-        // Translation key: do not remove this comment
-        // t('layout.menuItems.convertVrt')
-        i18nKey: 'layout.menuItems.convertVrt',
-        iconName: 'convert',
-      });
-    }
-
-    if (bridgeRouteEnabled) {
-      menuItems.push({
-        to: routes.bridge.path,
-        isNew: true,
-        // Translation key: do not remove this comment
-        // t('layout.menuItems.bridge')
-        i18nKey: 'layout.menuItems.bridge',
-        iconName: 'bridge',
-      });
-    }
+    // if (convertVrtRouteEnabled) {
+    //   menuItems.push({
+    //     to: routes.convertVrt.path,
+    //     // Translation key: do not remove this comment
+    //     // t('layout.menuItems.convertVrt')
+    //     i18nKey: "layout.menuItems.convertVrt",
+    //     iconName: "convert",
+    //   });
+    // }
 
     return menuItems;
   }, [
     accountAddress,
-    convertVrtRouteEnabled,
+    // convertVrtRouteEnabled,
     swapRouteEnabled,
     historyRouteEnabled,
     vaiRouteEnabled,

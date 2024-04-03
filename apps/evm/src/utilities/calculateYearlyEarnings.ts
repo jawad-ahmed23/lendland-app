@@ -22,9 +22,10 @@ export const calculateYearlyEarningsForAsset = ({ asset }: { asset: Asset }) => 
   // Combine supply and borrow APYs with distribution APYs
   const combinedDistributionApys = getCombinedDistributionApys({ asset });
 
-  const totalSupplyApyPercentage = asset.supplyApyPercentage.plus(
-    combinedDistributionApys.totalSupplyApyPercentage,
-  );
+  // const totalSupplyApyPercentage = asset.supplyApyPercentage.plus(
+  //   combinedDistributionApys.totalSupplyApyPercentage,
+  // );
+  const totalSupplyApyPercentage = BigNumber(0)
 
   const totalBorrowApyPercentage = asset.borrowApyPercentage.minus(
     combinedDistributionApys.totalBorrowApyPercentage,

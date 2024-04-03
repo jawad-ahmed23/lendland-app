@@ -45,8 +45,9 @@ export const QUERY_PARAM_TOKEN_ADDRESS = 'tokenAddress';
 export const Form: React.FC = () => {
   const { t } = useTranslation();
   const xvs = useGetToken({
-    symbol: 'XVS',
+    symbol: 'LELA',
   });
+
   const { accountAddress } = useAccountAddress();
   const { data: getLegacyPoolData, isLoading: isGetLegacyPoolLoading } = useGetLegacyPool({
     accountAddress,

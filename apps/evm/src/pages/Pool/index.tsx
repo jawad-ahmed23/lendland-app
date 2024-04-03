@@ -65,8 +65,8 @@ export const PoolUi: React.FC<PoolUiProps> = ({ pool }) => {
     ];
   }, [pool, t]);
 
-  return pool ? (
-    <>
+  // return pool ? (
+   return <>
       <CellGroup cells={cells} css={styles.header} />
 
       <Notice
@@ -76,11 +76,11 @@ export const PoolUi: React.FC<PoolUiProps> = ({ pool }) => {
         description={t('pool.poolWarning', { poolName: 'LendLand' })}
       />
 
-      <Table pool={pool} />
+      <Table pool={pool} isPoolPage />
     </>
-  ) : (
-    <Spinner />
-  );
+  // ) : (
+  //   <Spinner />
+  // );
 };
 
 interface PoolPageProps {
@@ -90,17 +90,17 @@ interface PoolPageProps {
 const PoolPage: React.FC<PoolPageProps> = ({ poolComptrollerAddress }) => {
   const { accountAddress } = useAccountAddress();
 
-  const { data: getPoolData, isLoading: isGetPoolLoading } = useGetPool({
-    accountAddress,
-    poolComptrollerAddress,
-  });
+  // const { data: getPoolData, isLoading: isGetPoolLoading } = useGetPool({
+  //   accountAddress,
+  //   poolComptrollerAddress,
+  // });
 
   // Redirect to Dashboard page if pool Comptroller address is incorrect
-  if (!isGetPoolLoading && !getPoolData?.pool) {
-    return <Navigate to={routes.dashboard.path} />;
-  }
+  // if (!isGetPoolLoading && !getPoolData?.pool) {
+  //   return <Navigate to={routes.dashboard.path} />;
+  // }
 
-  return <PoolUi pool={getPoolData?.pool} />;
+  return <PoolUi pool={undefined} />;
 };
 
 export default PoolPage;

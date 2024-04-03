@@ -1,0 +1,147 @@
+export const proposalsData = [
+  {
+    abstainedVotesMantissa: "0",
+    againstVotesMantissa: "0",
+    createdDate: "2024-03-26T18:18:45.000Z",
+    description: {
+      version: "v2",
+      title: "VIP-258 Fix ACM in Comptroller",
+      description: "Fix ACM in Comptroller",
+      forDescription:
+        "I agree that Venus Protocol should proceed with this proposal",
+      againstDescription:
+        "I do not think that Venus Protocol should proceed with this proposal",
+      abstainDescription:
+        "I am indifferent to whether Venus Protocol proceeds or not",
+    },
+    endBlock: 38921929,
+    endDate: "2024-03-26T18:33:45.000Z",
+    executedDate: "2024-03-26T18:45:57.000Z",
+    forVotesMantissa: "6.05462e+23",
+    proposalId: 390,
+    proposer: "0x2ce1d0ffd7e869d9df33e28552b12ddded326706",
+    queuedDate: "2024-03-26T18:35:42.000Z",
+    etaDate: "2024-03-26T18:45:42.000Z",
+    startDate: "2024-03-26T18:26:15.000Z",
+    state: 7,
+    createdTxHash:
+      "0x29d22459492baecc3b9593aa5a5ecd33e2c724cc70dd3d936cf843fb0c20c31c",
+    executedTxHash:
+      "0x69afe66efde272ca982a968868bc8e76544cc8d6f621aecd8b097ec069c444d6",
+    queuedTxHash:
+      "0x6739e92433c11e0ba16732f645fe74910c001bd94c473239475a425566c2106a",
+    totalVotesMantissa: "6.05462e+23",
+    proposalActions: [],
+    forVotes: [],
+    againstVotes: [],
+    abstainVotes: [],
+    proposalType: 0,
+    userHasVoted: false,
+  },
+  {
+    abstainedVotesMantissa: "0",
+    againstVotesMantissa: "0",
+    createdDate: "2024-03-21T13:20:38.000Z",
+    description: {
+      version: "v2",
+      title: "1",
+      description: "2",
+      forDescription: "1",
+      againstDescription: "2",
+      abstainDescription: "3",
+    },
+    endBlock: 38772087,
+    endDate: "2024-03-21T13:35:38.000Z",
+    forVotesMantissa: "0",
+    proposalId: 389,
+    proposer: "0x2ce1d0ffd7e869d9df33e28552b12ddded326706",
+    startDate: "2024-03-21T13:28:08.000Z",
+    state: 3,
+    createdTxHash:
+      "0xd098f5517df4785c67f1517792ead6ce139ac1541f5d92d5ab2a0556c9332015",
+    totalVotesMantissa: "0",
+    proposalActions: [],
+    forVotes: [],
+    againstVotes: [],
+    abstainVotes: [],
+    proposalType: 0,
+    userHasVoted: false,
+  },
+  {
+    abstainedVotesMantissa: "0",
+    againstVotesMantissa: "0",
+    createdDate: "2024-03-20T11:12:05.000Z",
+    description: {
+      version: "v2",
+      title: "VIP-273 Configure EURA Price",
+      description: "configure EURA Price",
+      forDescription: "Execute this proposal",
+      againstDescription: "Do not execute this proposal",
+      abstainDescription: "Indifferent to execution",
+    },
+    endBlock: 38740716,
+    endDate: "2024-03-20T11:27:05.000Z",
+    executedDate: "2024-03-20T11:46:20.000Z",
+    forVotesMantissa: "6.05462e+23",
+    proposalId: 388,
+    proposer: "0x2ce1d0ffd7e869d9df33e28552b12ddded326706",
+    queuedDate: "2024-03-20T11:32:47.000Z",
+    etaDate: "2024-03-20T11:42:47.000Z",
+    startDate: "2024-03-20T11:19:35.000Z",
+    state: 7,
+    createdTxHash:
+      "0x8ee7640ce1a27827623fdb667ebaa62d4dafa000d686568ab998b3f9a16de72d",
+    executedTxHash:
+      "0xcfcc1577dcfa09470dcac1b6d3e3d4ea5e03d6c86c6022d7b5b8254b43b6a4ea",
+    queuedTxHash:
+      "0xf2e9833fa3a47a696566fa5191b10586faf5e4ab4feb925687d5d99b0a2e1e41",
+    totalVotesMantissa: "6.05462e+23",
+    proposalActions: [],
+    forVotes: [],
+    againstVotes: [],
+    abstainVotes: [],
+    proposalType: 0,
+    userHasVoted: false,
+  },
+  {
+    abstainedVotesMantissa: "0",
+    againstVotesMantissa: "0",
+    createdDate: "2024-03-14T07:07:05.000Z",
+    description: {
+      version: "v2",
+      title:
+        "VIP-Gateway Update VToken and comptroller implementation in IL and Core Pool and introduces the NativeTokenGateway contract",
+      description:
+        "\n    This VIP does the following:\n    1. Updates the implementation of all VTokens and Comptroller market facet in Core Pool\n    2. Updates the implementation of VTokens and Comptrollers in IL\n    3. Accepts the ownership of the NativeTokenGateway contract\n    4. Gives call permissions to Timelocks for seizeVenus function\n    5. Sets XVS and vXVS address in unitroller",
+      forDescription:
+        "I agree that Venus Protocol should proceed with this proposal",
+      againstDescription:
+        "I do not think that Venus Protocol should proceed with this proposal",
+      abstainDescription:
+        "I am indifferent to whether Venus Protocol proceeds or not",
+    },
+    endBlock: 38563075,
+    endDate: "2024-03-14T07:22:14.000Z",
+    executedDate: "2024-03-14T07:38:32.000Z",
+    forVotesMantissa: "6.05462e+23",
+    proposalId: 387,
+    proposer: "0x2ce1d0ffd7e869d9df33e28552b12ddded326706",
+    queuedDate: "2024-03-14T07:24:08.000Z",
+    etaDate: "2024-03-14T07:34:08.000Z",
+    startDate: "2024-03-14T07:14:44.000Z",
+    state: 7,
+    createdTxHash:
+      "0xb8a187251cafa2f1b76332c586cfd783b014628a9979e226974ea70ac26e1ea3",
+    executedTxHash:
+      "0xc86a942be218b162f0b8d628559628edd4038ba8887adb72179b9953a4e605f2",
+    queuedTxHash:
+      "0xed91af360f4a049702ec62c470f67b14abd375cd2ed38313e35c2de3d9cbb464",
+    totalVotesMantissa: "6.05462e+23",
+    proposalActions: [],
+    forVotes: [],
+    againstVotes: [],
+    abstainVotes: [],
+    proposalType: 0,
+    userHasVoted: false,
+  },
+];

@@ -171,9 +171,9 @@ const useGenerateColumns = ({
 
             if (column === "price") {
               const { tokenPriceCents } = poolAsset;
-              const price = tokenPriceCents.isGreaterThan(PRICE_THRESHOLD)
-                ? tokenPriceCents
-                : new BigNumber(0);
+              // const price = tokenPriceCents.isGreaterThan(PRICE_THRESHOLD)
+              //   ? tokenPriceCents
+              //   : new BigNumber(0);
               // return formatCentsToReadableValue({
               //   value: price,
               //   isTokenPrice: true,
@@ -320,14 +320,16 @@ const useGenerateColumns = ({
                     column === "supplyApyLtv" ||
                     column === "labeledSupplyApyLtv"
                   ) {
-                    const roaASupplyApy = rowA.supplyApyPercentage.plus(
-                      getCombinedDistributionApys({ asset: rowA })
-                        .totalSupplyApyPercentage
-                    );
-                    const roaBSupplyApy = rowB.supplyApyPercentage.plus(
-                      getCombinedDistributionApys({ asset: rowB })
-                        .totalSupplyApyPercentage
-                    );
+                    // const roaASupplyApy = rowA.supplyApyPercentage.plus(
+                    //   getCombinedDistributionApys({ asset: rowA })
+                    //     .totalSupplyApyPercentage
+                    // );
+                    const roaASupplyApy = BigNumber(0)
+                    // const roaBSupplyApy = rowB.supplyApyPercentage.plus(
+                    //   getCombinedDistributionApys({ asset: rowB })
+                    //     .totalSupplyApyPercentage
+                    // );
+                    const roaBSupplyApy = BigNumber(0)
 
                     return compareBigNumbers(
                       roaASupplyApy,

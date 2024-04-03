@@ -1,22 +1,22 @@
 /** @jsxImportSource @emotion/react */
-import Paper from '@mui/material/Paper';
-import { useMemo } from 'react';
+import Paper from "@mui/material/Paper";
+import { useMemo } from "react";
 
 import {
   useGetVrtConversionEndTime,
   useGetVrtConversionRatio,
   useGetXvsWithdrawableAmount,
   useWithdrawXvs,
-} from 'clients/api';
-import { Spinner, Tabs } from 'components';
-import { useGetToken } from 'libs/tokens';
-import { useTranslation } from 'libs/translations';
-import { useAccountAddress } from 'libs/wallet';
-import { convertMantissaToTokens } from 'utilities';
+} from "clients/api";
+import { Spinner, Tabs } from "components";
+import { useGetToken } from "libs/tokens";
+import { useTranslation } from "libs/translations";
+import { useAccountAddress } from "libs/wallet";
+import { convertMantissaToTokens } from "utilities";
 
-import Convert from './Convert';
-import Withdraw, { type WithdrawProps } from './Withdraw';
-import { useStyles } from './styles';
+import Convert from "./Convert";
+import Withdraw, { type WithdrawProps } from "./Withdraw";
+import { useStyles } from "./styles";
 
 export type ConvertVrtUiProps = WithdrawProps;
 
@@ -30,11 +30,11 @@ export const ConvertVrtUi = ({
 
   const tabsContent = [
     {
-      title: t('convertVrt.convert'),
+      title: t("convertVrt.convert"),
       content: <Convert />,
     },
     {
-      title: t('convertVrt.withdraw'),
+      title: t("convertVrt.withdraw"),
       content: (
         <Withdraw
           xvsWithdrawableAmount={xvsWithdrawableAmount}
@@ -59,17 +59,17 @@ const ConvertVrt = () => {
   const { data: vrtConversionEndTimeData } = useGetVrtConversionEndTime();
   const { data: vrtConversionRatioData } = useGetVrtConversionRatio();
   const xvs = useGetToken({
-    symbol: 'XVS',
+    symbol: "XVS",
   });
 
-  const {
-    data: { totalWithdrawableAmount: xvsWithdrawableAmount } = {},
-  } = useGetXvsWithdrawableAmount(
-    { accountAddress: accountAddress || '' },
-    { enabled: !!accountAddress },
-  );
+  const { data: { totalWithdrawableAmount: xvsWithdrawableAmount } = {} } =
+    useGetXvsWithdrawableAmount(
+      { accountAddress: accountAddress || "" },
+      { enabled: !!accountAddress }
+    );
 
-  const { mutateAsync: withdrawXvs, isLoading: withdrawXvsLoading } = useWithdrawXvs();
+  const { mutateAsync: withdrawXvs, isLoading: withdrawXvsLoading } =
+    useWithdrawXvs();
 
   const conversionRatio = useMemo(() => {
     if (xvs && vrtConversionRatioData?.conversionRatio) {

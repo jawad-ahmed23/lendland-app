@@ -96,11 +96,12 @@ const useAssetInfo = ({
         type === 'borrow'
           ? t('assetInfo.totalApy.borrowApyTooltip')
           : t('assetInfo.totalApy.supplyApyTooltip'),
-      children: formatPercentageToReadableValue(
-        type === 'borrow'
-          ? asset.borrowApyPercentage.minus(hypotheticalTotalDistributionBorrowApyPercentage)
-          : asset.supplyApyPercentage.plus(hypotheticalTotalDistributionSupplyApyPercentage),
-      ),
+      // children: formatPercentageToReadableValue(
+      //   type === 'borrow'
+      //     ? asset.borrowApyPercentage.minus(hypotheticalTotalDistributionBorrowApyPercentage)
+      //     : asset.supplyApyPercentage.plus(hypotheticalTotalDistributionSupplyApyPercentage),
+      // ),
+      children: '0'
     });
 
     return rows;

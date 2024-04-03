@@ -31,6 +31,8 @@ import { getProposalStateLabel } from 'utilities/getProposalStateLabel';
 import TEST_IDS from '../testIds';
 import CreateProposalModal from './CreateProposalModal';
 import GovernanceProposal from './GovernanceProposal';
+import { proposalsData } from '../../../../data/proposals';
+import BigNumber from 'bignumber.js';
 
 const ALL_OPTION_VALUE = 'all';
 
@@ -78,18 +80,18 @@ const ProposalList: React.FC<ProposalListPageProps> = ({
   >(ALL_OPTION_VALUE);
   const [searchValue, setSearchValue] = useState('');
 
-  const {
-    data: { proposals, total, limit = 10 } = { proposals: [] },
-    isFetching: isGetProposalsFetching,
-    isPreviousData: isGetProposalsPreviousData,
-  } = useGetProposals({
-    page: currentPage,
-    limit: 4,
-    accountAddress,
-  });
+  // const {
+  //   data: { proposals, total, limit = 10 } = { proposals: [] },
+  //   isFetching: isGetProposalsFetching,
+  //   isPreviousData: isGetProposalsPreviousData,
+  // } = useGetProposals({
+  //   page: currentPage,
+  //   limit: 4,
+  //   accountAddress,
+  // });
 
-  const isFetchingProposals =
-    isGetProposalsFetching && (isGetProposalsPreviousData || proposals.length === 0);
+  // const isFetchingProposals =
+  //   isGetProposalsFetching && (isGetProposalsPreviousData || proposals.length === 0);
 
   const { mutateAsync: createProposal, isLoading: isCreateProposalLoading } = useCreateProposal();
 
@@ -174,16 +176,16 @@ const ProposalList: React.FC<ProposalListPageProps> = ({
         </div>
       )}
 
-      {isFetchingProposals && <Spinner className="h-auto" />}
+      {/* {isFetchingProposals && <Spinner className="h-auto" />} */}
 
       <div className="space-y-4 md:space-y-6">
-        {proposals.map(
+        {proposalsData.map(
           ({
             proposalId,
             description,
             state,
             endDate,
-            cancelDate,
+            // cancelDate,
             queuedDate,
             etaDate,
             forVotesMantissa,
@@ -197,14 +199,22 @@ const ProposalList: React.FC<ProposalListPageProps> = ({
               proposalId={proposalId}
               proposalTitle={description.title}
               proposalState={state}
-              endDate={endDate}
-              executedDate={executedDate}
-              cancelDate={cancelDate}
-              queuedDate={queuedDate}
-              etaDate={etaDate}
-              forVotesMantissa={forVotesMantissa}
-              againstVotesMantissa={againstVotesMantissa}
-              abstainedVotesMantissa={abstainedVotesMantissa}
+              // endDate={endDate}
+              // executedDate={executedDate}
+              // cancelDate={cancelDate}
+              // queuedDate={queuedDate}
+              // etaDate={etaDate}
+              // forVotesMantissa={forVotesMantissa}
+              // againstVotesMantissa={againstVotesMantissa}
+              // abstainedVotesMantissa={abstainedVotesMantissa}
+              endDate={new Date('03-01-2024')}
+              executedDate={new Date('03-01-2024')}
+              cancelDate={new Date('03-01-2024')}
+              // queuedDate={queuedDate}
+              // etaDate={etaDate}
+              forVotesMantissa={BigNumber(0)}
+              againstVotesMantissa={BigNumber(0)}
+              abstainedVotesMantissa={BigNumber(0)}
               proposalType={proposalType}
             />
           ),

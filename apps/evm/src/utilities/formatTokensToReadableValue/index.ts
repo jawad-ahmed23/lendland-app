@@ -28,8 +28,10 @@ export const formatTokensToReadableValue = ({
   }
 
   let readableValue: string;
-  const absoluteValue = value.absoluteValue();
-  const isNegative = value.isLessThan(0);
+  // const absoluteValue = value.absoluteValue();
+  const absoluteValue = BigNumber(0);
+  // const isNegative = value.isLessThan(0);
+  const isNegative = false;
 
   if (absoluteValue.isEqualTo(0)) {
     readableValue = '0';
@@ -40,8 +42,8 @@ export const formatTokensToReadableValue = ({
       roundingMode,
     });
     readableValue = `${isNegative ? '< -' : '> '}${formattedReadableValue}`;
-  } else if (absoluteValue.isLessThan(MIN_VALUE)) {
-    readableValue = `< ${new BigNumber(MIN_VALUE).toFormat()}`;
+  // } else if (absoluteValue.isLessThan(MIN_VALUE)) {
+    // readableValue = `< ${new BigNumber(MIN_VALUE).toFormat()}`;
   } else {
     const formattedReadableValue = shortenValueWithSuffix({
       value: absoluteValue,

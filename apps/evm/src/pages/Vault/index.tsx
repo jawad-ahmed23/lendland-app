@@ -6,6 +6,7 @@ import type { Vault } from 'types';
 
 import VaultItem from './VaultItem';
 import { useStyles } from './styles';
+import { vaultsData } from '../../../data/vault';
 
 export interface VaultUiProps {
   vaults: Vault[];
@@ -32,13 +33,14 @@ export const VaultUi: React.FC<VaultUiProps> = ({ vaults, isInitialLoading }) =>
 };
 
 const VaultPage: React.FC = () => {
-  const { accountAddress } = useAccountAddress();
-  const { data: vaults, isLoading: isGetVaultsLoading } = useGetVaults({
-    accountAddress,
-  });
+  // const { accountAddress } = useAccountAddress();
+  // const { data: vaults, isLoading: isGetVaultsLoading } = useGetVaults({
+  //   accountAddress,
+  // });
 
   // TODO: for `vaults={vaults[0] ? [vaults[0]] : []}`
-  return <VaultUi vaults={vaults[1] ? [vaults[1]] : []} isInitialLoading={isGetVaultsLoading} />;
+  // @ts-ignore
+  return <VaultUi vaults={vaultsData} isInitialLoading={false} />;
 };
 
 export default VaultPage;

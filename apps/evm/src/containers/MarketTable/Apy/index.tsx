@@ -13,6 +13,7 @@ import { getCombinedDistributionApys } from "utilities";
 import type { ColumnKey } from "../types";
 import { ApyWithPrimeBoost } from "./ApyWithPrimeBoost";
 import { ApyWithPrimeSimulationBoost } from "./ApyWithPrimeSimulationBoost";
+import BigNumber from "bignumber.js";
 
 export interface ApyProps {
   asset: Asset;
@@ -53,14 +54,14 @@ export const Apy: React.FC<ApyProps> = ({ asset, column }) => {
     return result;
   }, [asset.borrowDistributions, asset.supplyDistributions, type]);
 
-  const apyPercentage =
-    type === "borrow"
-      ? asset.borrowApyPercentage.minus(
-          combinedDistributionApys.totalBorrowApyPercentage
-        )
-      : asset.supplyApyPercentage.plus(
-          combinedDistributionApys.totalSupplyApyPercentage
-        );
+  const apyPercentage = BigNumber(0)
+    // type === "borrow"
+    //   ? asset.borrowApyPercentage.minus(
+    //       combinedDistributionApys.totalBorrowApyPercentage
+    //     )
+    //   : asset.supplyApyPercentage.plus(
+    //       combinedDistributionApys.totalSupplyApyPercentage
+    //     );
 
   const readableApy = useFormatPercentageToReadableValue({
     value: apyPercentage,
@@ -89,18 +90,18 @@ export const Apy: React.FC<ApyProps> = ({ asset, column }) => {
   }
 
   // Display hypothetical Prime boost
-  if (primeSimulationDistribution?.apyPercentage.isGreaterThan(0)) {
-    return (
-      <ApyWithPrimeSimulationBoost
-        type={type}
-        tokenAddress={asset.vToken.underlyingToken.address}
-        apyPercentage={apyPercentage}
-        readableLtv={readableLtv}
-        primeSimulationDistribution={primeSimulationDistribution}
-        xvs={xvs!}
-      />
-    );
-  }
+  // if (primeSimulationDistribution?.apyPercentage.isGreaterThan(0)) {
+  //   return (
+  //     <ApyWithPrimeSimulationBoost
+  //       type={type}
+  //       tokenAddress={asset.vToken.underlyingToken.address}
+  //       apyPercentage={apyPercentage}
+  //       readableLtv={readableLtv}
+  //       primeSimulationDistribution={primeSimulationDistribution}
+  //       xvs={xvs!}
+  //     />
+  //   );
+  // }
 
   // No Prime boost or Prime boost simulation to display
 

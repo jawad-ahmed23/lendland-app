@@ -11,21 +11,23 @@ export interface Tag {
 
 export interface TagGroupProps {
   tags: Tag[];
-  activeTagIndex: number;
-  onTagClick: (newIndex: number) => void;
+  // activeTagIndex: number;
+  activeTag: any;
+  // onTagClick: (newIndex: number) => void;
+  onTagClick: (content: any) => void;
   className?: string;
 }
 
-export const TagGroup = ({ tags, activeTagIndex, onTagClick, className }: TagGroupProps) => {
+export const TagGroup = ({ tags, activeTag, onTagClick, className }: TagGroupProps) => {
   const styles = useStyles();
 
   return (
     <div css={styles.container} className={className}>
       {tags.map((tag, index) => (
         <QuinaryButton
-          active={index === activeTagIndex}
+          active={tag.content === activeTag}
           key={`tag-group-tag-${tag.id}`}
-          onClick={() => onTagClick(index)}
+          onClick={() => onTagClick(tag.content)}
           css={styles.tag}
         >
           {tag.content}

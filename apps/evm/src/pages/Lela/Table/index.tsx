@@ -20,6 +20,7 @@ import {
 } from 'utilities';
 
 import { useStyles } from '../styles';
+import { lelaPoolData } from '../../../../data/lelaPoolData';
 
 type TableAsset = {
   token: Token;
@@ -62,8 +63,8 @@ const XvsTableUi: React.FC<XvsTableProps> = ({ assets, isFetchingAssets, xvs }) 
             })}
           </Typography>
         ),
-        sortRows: (rowA, rowB, direction) =>
-          compareBigNumbers(rowA.xvsPerDay, rowB.xvsPerDay, direction),
+        // sortRows: (rowA, rowB, direction) =>
+        //   compareBigNumbers(rowA.xvsPerDay, rowB.xvsPerDay, direction),
       },
       {
         key: 'supplyXvsApy',
@@ -76,8 +77,8 @@ const XvsTableUi: React.FC<XvsTableProps> = ({ assets, isFetchingAssets, xvs }) 
             {'0%'}
           </Typography>
         ),
-        sortRows: (rowA, rowB, direction) =>
-          compareBigNumbers(rowA.xvsSupplyApy, rowB.xvsSupplyApy, direction),
+        // sortRows: (rowA, rowB, direction) =>
+        //   compareBigNumbers(rowA.xvsSupplyApy, rowB.xvsSupplyApy, direction),
       },
       {
         key: 'borrowXvsApy',
@@ -90,8 +91,8 @@ const XvsTableUi: React.FC<XvsTableProps> = ({ assets, isFetchingAssets, xvs }) 
             {'0%'}
           </Typography>
         ),
-        sortRows: (rowA, rowB, direction) =>
-          compareBigNumbers(rowA.xvsBorrowApy, rowB.xvsBorrowApy, direction),
+        // sortRows: (rowA, rowB, direction) =>
+        //   compareBigNumbers(rowA.xvsBorrowApy, rowB.xvsBorrowApy, direction),
       },
     ],
     [t, xvs, styles.fontWeight400, styles.whiteText],
@@ -129,9 +130,9 @@ const XvsTable: React.FC = () => {
     symbol: 'LELA'
   })
 
-  const { data: getLegacyPoolData, isLoading: isGetLegacyPoolLoading } = useGetLegacyPool({
-    accountAddress,
-  });
+  // const { data: getLegacyPoolData, isLoading: isGetLegacyPoolLoading } = useGetLegacyPool({
+  //   accountAddress,
+  // });
 
   const { data: venusVaiVaultDailyRateData } = useGetVenusVaiVaultDailyRate();
 
@@ -147,58 +148,59 @@ const XvsTable: React.FC = () => {
     },
   );
 
-  const assetsWithVai = useMemo(() => {
-    const allAssets: TableAsset[] = (getLegacyPoolData?.pool.assets || []).map(asset => {
-      // Note: assets from the core pool only yield XVS, hence why we only take
-      // the first distribution token in consideration (which will always be XVS
-      // here)
-      const supplyXvsDistribution = asset.supplyDistributions[0] as RewardDistributorDistribution;
-      const borrowXvsDistribution = asset.borrowDistributions[0] as RewardDistributorDistribution;
+  // const assetsWithVai = useMemo(() => {
+  //   const allAssets: TableAsset[] = (getLegacyPoolData?.pool.assets || []).map(asset => {
+  //     // Note: assets from the core pool only yield XVS, hence why we only take
+  //     // the first distribution token in consideration (which will always be XVS
+  //     // here)
+  //     const supplyXvsDistribution = asset.supplyDistributions[0] as RewardDistributorDistribution;
+  //     const borrowXvsDistribution = asset.borrowDistributions[0] as RewardDistributorDistribution;
 
-      return {
-        token: asset.vToken.underlyingToken,
-        xvsPerDay: supplyXvsDistribution.dailyDistributedTokens.plus(
-          borrowXvsDistribution.dailyDistributedTokens,
-        ),
-        xvsSupplyApy: asset.supplyDistributions[0].apyPercentage,
-        xvsBorrowApy: asset.borrowDistributions[0].apyPercentage,
-      };
-    });
+  //     return {
+  //       token: asset.vToken.underlyingToken,
+  //       xvsPerDay: supplyXvsDistribution.dailyDistributedTokens.plus(
+  //         borrowXvsDistribution.dailyDistributedTokens,
+  //       ),
+  //       xvsSupplyApy: asset.supplyDistributions[0].apyPercentage,
+  //       xvsBorrowApy: asset.borrowDistributions[0].apyPercentage,
+  //     };
+  //   });
 
-    const xvsAsset = (getLegacyPoolData?.pool.assets || []).find(asset =>
-      areTokensEqual(asset.vToken.underlyingToken, xvs!),
-    );
+  //   const xvsAsset = (getLegacyPoolData?.pool.assets || []).find(asset =>
+  //     areTokensEqual(asset.vToken.underlyingToken, xvs!),
+  //   );
 
-    if (venusVaiVaultDailyRateData && vaultVaiStakedData && xvsAsset) {
-      const vaiVaultDailyXvsRateTokens = convertMantissaToTokens({
-        value: venusVaiVaultDailyRateData.dailyRateMantissa,
-        token: xvs,
-      });
+  //   if (venusVaiVaultDailyRateData && vaultVaiStakedData && xvsAsset) {
+  //     const vaiVaultDailyXvsRateTokens = convertMantissaToTokens({
+  //       value: venusVaiVaultDailyRateData.dailyRateMantissa,
+  //       token: xvs,
+  //     });
 
-      const vaiVaultStakedTokens = convertMantissaToTokens({
-        value: vaultVaiStakedData.balanceMantissa,
-        token: vai,
-      });
+  //     const vaiVaultStakedTokens = convertMantissaToTokens({
+  //       value: vaultVaiStakedData.balanceMantissa,
+  //       token: vai,
+  //     });
 
-      const dailyRate = vaiVaultDailyXvsRateTokens
-        .times(xvsAsset.tokenPriceCents.div(100))
-        .div(vaiVaultStakedTokens);
+  //     const dailyRate = vaiVaultDailyXvsRateTokens
+  //       .times(xvsAsset.tokenPriceCents.div(100))
+  //       .div(vaiVaultStakedTokens);
 
-      const vaiApy = calculateApy({ dailyRate });
+  //     const vaiApy = calculateApy({ dailyRate });
 
-      allAssets.unshift({
-        token: vai!,
-        xvsPerDay: vaiVaultDailyXvsRateTokens,
-        xvsSupplyApy: vaiApy,
-        xvsBorrowApy: undefined,
-      });
-    }
+  //     allAssets.unshift({
+  //       token: vai!,
+  //       xvsPerDay: vaiVaultDailyXvsRateTokens,
+  //       xvsSupplyApy: vaiApy,
+  //       xvsBorrowApy: undefined,
+  //     });
+  //   }
 
-    return allAssets;
-  }, [getLegacyPoolData?.pool.assets, venusVaiVaultDailyRateData, vaultVaiStakedData, vai, xvs]);
+  //   return allAssets;
+  // }, [getLegacyPoolData?.pool.assets, venusVaiVaultDailyRateData, vaultVaiStakedData, vai, xvs]);
 
   // TODO: change `xvs={lela!}` xvs variable
-  return <XvsTableUi assets={assetsWithVai} isFetchingAssets={isGetLegacyPoolLoading} xvs={lela!} />;
+  // @ts-ignore
+  return <XvsTableUi assets={lelaPoolData} isFetchingAssets={false} xvs={lela!} />;
 };
 
 export default XvsTable;

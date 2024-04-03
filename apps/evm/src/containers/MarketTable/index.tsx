@@ -11,6 +11,7 @@ import type { Pool } from "types";
 import { useStyles } from "./styles";
 import type { ColumnKey, PoolAsset } from "./types";
 import useGenerateColumns from "./useGenerateColumns";
+import { poolAssets as _poolAssets } from '../../../data/dashboardData'
 
 export interface MarketTableProps
   extends Partial<
@@ -29,6 +30,8 @@ export interface MarketTableProps
   marketType?: "supply" | "borrow";
   className?: string;
   testId?: string;
+  currentPool?: any;
+  isPoolPage?: boolean
 }
 
 export const MarketTable: React.FC<MarketTableProps> = ({
@@ -38,6 +41,8 @@ export const MarketTable: React.FC<MarketTableProps> = ({
   getRowHref,
   initialOrder,
   testId,
+  currentPool,
+  isPoolPage,
   ...otherTableProps
 }) => {
   const styles = useStyles();
@@ -60,18 +65,28 @@ export const MarketTable: React.FC<MarketTableProps> = ({
     }
   };
 
-  const poolAssets = useMemo(
-    () =>
-      pools.reduce((acc, pool) => {
-        const newPoolAssets: PoolAsset[] = pool.assets.map((asset) => ({
-          ...asset,
-          pool,
-        }));
+  const poolAssets: any = useMemo(() => {
+    if (isPoolPage) {
+      return _poolAssets.filter(pool => pool.pool.name === "LendLand Core Pool")
+    }
+    if (currentPool !== 'All') {
+      return _poolAssets.filter(pool => pool.pool.name === currentPool)
+    }
+    return _poolAssets;
+  }, [currentPool]);
 
-        return acc.concat(newPoolAssets);
-      }, [] as PoolAsset[]),
-    [pools]
-  );
+  // const __poolAssets = useMemo(
+  //   () =>
+  //     pools.reduce((acc, pool) => {
+  //       const newPoolAssets: PoolAsset[] = pool.assets.map((asset) => ({
+  //         ...asset,
+  //         pool,
+  //       }));
+
+  //       return acc.concat(newPoolAssets);
+  //     }, [] as PoolAsset[]),
+  //   [pools]
+  // );
 
   const columns = useGenerateColumns({
     columnKeys,
@@ -126,6 +141,7 @@ export const MarketTable: React.FC<MarketTableProps> = ({
     <div data-testid={testId}>
       <Table
         columns={columns}
+        // @ts-ignore
         data={poolAssets}
         css={styles.cardContentGrid}
         rowKeyExtractor={(row) =>
