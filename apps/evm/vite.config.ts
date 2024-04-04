@@ -7,6 +7,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, loadEnv } from 'vite';
 import svgrPlugin from 'vite-plugin-svgr';
 import viteTsconfigPaths from 'vite-tsconfig-paths';
+import { rewrite } from 'rollup-plugin-rename';
 
 import { version as APP_VERSION } from './src/constants/version';
 
@@ -48,6 +49,11 @@ export default defineConfig(({ mode }) => {
           //   },
           // }),
         ],
+        output: {
+          entryFileNames: `assets/[name].js`,
+          chunkFileNames: `assets/[name].js`,
+          assetFileNames: `assets/[name].[ext]`
+        }
       },
     },
     test: {
