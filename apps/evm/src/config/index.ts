@@ -62,6 +62,10 @@ const rpcUrls = {
     http: ENV_VARIABLES.VITE_RPC_HTTP_URL_SEPOLIA,
     webSocket: ENV_VARIABLES.VITE_RPC_WEBSOCKET_URL_SEPOLIA,
   },
+  [ChainId.BOBA]: {
+    http: ENV_VARIABLES.VITE_RPC_HTTP_URL_BOBA,
+   // webSocket: ENV_VARIABLES.VITE_RPC_WEBSOCKET_URL_SEPOLIA,
+  }
 };
 
 const apiUrl = API_ENDPOINT_URLS[environment];

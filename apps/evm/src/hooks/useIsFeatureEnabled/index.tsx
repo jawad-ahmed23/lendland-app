@@ -13,7 +13,7 @@ export const featureFlags = {
   historyRoute: [ChainId.BSC_MAINNET, ChainId.BSC_TESTNET],
   vaiRoute: [ChainId.BSC_MAINNET, ChainId.BSC_TESTNET],
   swapRoute: [ChainId.BSC_MAINNET, ChainId.BSC_TESTNET],
-  lelaRoute: [ChainId.BSC_MAINNET, ChainId.BSC_TESTNET],
+  lelaRoute: [ChainId.BSC_MAINNET, ChainId.BSC_TESTNET, ChainId.BOBA],
   // xvsRoute: [ChainId.BSC_MAINNET, ChainId.BSC_TESTNET],
   createProposal: [ChainId.BSC_MAINNET, ChainId.BSC_TESTNET],
   voteProposal: [ChainId.BSC_MAINNET, ChainId.BSC_TESTNET],
@@ -26,7 +26,7 @@ export const featureFlags = {
     ChainId.ETHEREUM,
     ChainId.SEPOLIA,
   ],
-  isolatedPools: [ChainId.BSC_MAINNET, ChainId.BSC_TESTNET, ChainId.ETHEREUM, ChainId.SEPOLIA],
+  isolatedPools: [ChainId.BSC_MAINNET, ChainId.BSC_TESTNET, ChainId.ETHEREUM, ChainId.SEPOLIA, ChainId.BOBA],
   bridgeRoute: [
     ChainId.BSC_MAINNET,
     ChainId.BSC_TESTNET,
@@ -34,6 +34,7 @@ export const featureFlags = {
     ChainId.SEPOLIA,
     ChainId.OPBNB_MAINNET,
     ChainId.OPBNB_TESTNET,
+    ChainId.BOBA
   ],
   chainSelect: [
     ChainId.BSC_MAINNET,
@@ -42,9 +43,10 @@ export const featureFlags = {
     ChainId.SEPOLIA,
     ChainId.OPBNB_MAINNET,
     ChainId.OPBNB_TESTNET,
+    ChainId.BOBA
   ],
   wrapUnwrapNativeToken: [ChainId.SEPOLIA, ChainId.BSC_TESTNET, ChainId.OPBNB_TESTNET],
-  governanceSearch: [ChainId.SEPOLIA, ChainId.BSC_TESTNET, ChainId.OPBNB_TESTNET],
+  governanceSearch: [ChainId.SEPOLIA, ChainId.BSC_TESTNET, ChainId.OPBNB_TESTNET, ChainId.BOBA],
 };
 
 export type FeatureFlag = keyof typeof featureFlags;

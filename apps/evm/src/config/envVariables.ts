@@ -67,6 +67,12 @@ export const ENV_VARIABLES = {
       ? process.env.VITE_RPC_WEBSOCKET_URL_SEPOLIA
       : import.meta.env.VITE_RPC_WEBSOCKET_URL_SEPOLIA,
 
+ // Boba mainnet    
+ VITE_RPC_HTTP_URL_BOBA:    
+ typeof process !== 'undefined'
+     ? process.env.VITE_RPC_HTTP_URL_BOBA
+     : import.meta.env.VITE_RPC_HTTP_URL_BOBA,         
+
   // Third-parties
   VITE_SENTRY_DSN:
     typeof process !== 'undefined' ? process.env.VITE_SENTRY_DSN : import.meta.env.VITE_SENTRY_DSN,

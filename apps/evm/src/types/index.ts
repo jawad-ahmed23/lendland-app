@@ -14,6 +14,7 @@ export enum ChainId {
   SEPOLIA = 11155111,
   OPBNB_MAINNET = 204,
   OPBNB_TESTNET = 5611,
+  BOBA = 288,
 }
 
 export type TransactionType = 'chain' | 'layerZero';

@@ -1,13 +1,14 @@
-import { type Chain, bsc, bscTestnet, mainnet, opBNB, opBNBTestnet, sepolia } from 'wagmi/chains';
+import { type Chain, bsc, bscTestnet, mainnet, opBNB, opBNBTestnet, sepolia, boba } from 'wagmi/chains';
 
 import localConfig from 'config';
 
 const getSupportedChains = (): Chain[] => {
   if (localConfig.isOnTestnet) {
-    return [bscTestnet, opBNBTestnet, sepolia];
+    return [bscTestnet, opBNBTestnet, sepolia, boba];
   }
 
-  return [bsc, mainnet, opBNB];
+  //return [bsc, mainnet, opBNB];
+    return [ boba]
 };
 
 export const governanceChain = localConfig.isOnTestnet ? bscTestnet : bsc;

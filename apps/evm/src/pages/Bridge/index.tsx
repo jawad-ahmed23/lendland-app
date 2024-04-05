@@ -271,9 +271,9 @@ const BridgePage: React.FC = () => {
     return [otherChainsListOptions, bscChainListOptions];
   }, [chainId]);
 
-  if (!nativeToken || !xvs) {
-    return <Spinner />;
-  }
+  // if (!nativeToken || !xvs) {
+  //   return <Spinner />;
+  // }
 
   const readableFee = formatTokensToReadableValue({
     token: nativeToken,

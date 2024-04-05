@@ -2,6 +2,7 @@ import { getToken } from 'libs/tokens/utilities/getToken';
 import bscLogo from 'libs/wallet/chains/img/bsc.svg';
 import ethLogo from 'libs/wallet/chains/img/eth.svg';
 import opbnbLogo from 'libs/wallet/chains/img/opbnb.svg';
+import bobaLogo from 'libs/wallet/chains/img/boba.png';
 import { ChainId, type ChainMetadata } from 'types';
 
 export const CHAIN_METADATA: {
@@ -66,5 +67,15 @@ export const CHAIN_METADATA: {
     blocksPerDay: 7200,
     corePoolComptrollerContractAddress: '0x7Aa39ab4BcA897F403425C9C6FDbd0f882Be0D70',
     nativeToken: getToken({ chainId: ChainId.SEPOLIA, symbol: 'ETH' })!,
+  },
+  [ChainId.BOBA]: {
+    name: 'Boba',
+    logoSrc: bobaLogo,
+    explorerUrl: 'https://routescan.io',
+    layerZeroScanUrl: 'https://testnet.layerzeroscan.com/',
+    blockTimeMs: 12000,
+    blocksPerDay: 7200,
+    corePoolComptrollerContractAddress: '0x7Aa39ab4BcA897F403425C9C6FDbd0f882Be0D70',
+    nativeToken: getToken({ chainId: ChainId.BOBA, symbol: 'BOBA' })!,
   },
 };

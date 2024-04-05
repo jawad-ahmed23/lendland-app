@@ -112,7 +112,7 @@ const VotingWallet: React.FC<VotingWalletProps> = ({ className }) => {
     <div className={cn('flex flex-col', className)}>
       <h4 className="text-lg font-semibold">{t('vote.votingWallet')}</h4>
 
-      {!voteProposalFeatureEnabled && (
+      {/* {!voteProposalFeatureEnabled && (
         <NoticeInfo
           className="mt-4 w-full md:mt-6"
           data-testid={TEST_IDS.votingDisabledWarning}
@@ -127,7 +127,7 @@ const VotingWallet: React.FC<VotingWalletProps> = ({ className }) => {
             </Button>
           }
         />
-      )}
+      )} */}
 
       <Card className="mt-6 flex flex-col px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:py-10 lg:flex-col lg:items-start lg:py-6">
         <div className="border-r-[#21293A] pb-4 sm:border-r sm:pb-0 sm:pr-[26px] md:pr-10 lg:border-r-0 lg:pb-4">

@@ -33,10 +33,10 @@ export const Prompt: React.FC<PromptProps> = ({
       ) : (
         <>
           {!!message && <NoticeInfo css={styles.notice} description={message} />}
-
+{/* 
           <Button variant={buttonVariant} className="w-full" onClick={openAuthModal}>
             {t('connectWallet.connectButton')}
-          </Button>
+          </Button> */}
         </>
       )}
     </div>
