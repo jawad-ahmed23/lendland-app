@@ -178,8 +178,8 @@ const ProposalList: React.FC<ProposalListPageProps> = ({
 
       {/* {isFetchingProposals && <Spinner className="h-auto" />} */}
 
-      <div className="space-y-4 md:space-y-6">
-        {proposalsData.map(
+      <div className="space-y-4 text-center md:space-y-6">
+        {/* {proposalsData.map(
           ({
             proposalId,
             description,
@@ -207,9 +207,9 @@ const ProposalList: React.FC<ProposalListPageProps> = ({
               // forVotesMantissa={forVotesMantissa}
               // againstVotesMantissa={againstVotesMantissa}
               // abstainedVotesMantissa={abstainedVotesMantissa}
-              endDate={new Date('03-01-2024')}
-              executedDate={new Date('03-01-2024')}
-              cancelDate={new Date('03-01-2024')}
+              endDate={new Date()}
+              executedDate={new Date()}
+              cancelDate={new Date()}
               // queuedDate={queuedDate}
               // etaDate={etaDate}
               forVotesMantissa={BigNumber(0)}
@@ -218,7 +218,8 @@ const ProposalList: React.FC<ProposalListPageProps> = ({
               proposalType={proposalType}
             />
           ),
-        )}
+        )} */}
+        No Data
       </div>
 
       {/* {!!total && total > 0 && (
