@@ -1,7 +1,7 @@
 import { Select, type SelectOption } from "components";
 import { CHAIN_METADATA } from "constants/chainMetadata";
 import { useTranslation } from "libs/translations";
-import { chains, useChainId, useSwitchChain } from "libs/wallet";
+import { chains as allChains, useChainId, useSwitchChain } from "libs/wallet";
 import type { ChainId } from "types";
 import { cn } from "utilities";
 
@@ -9,6 +9,8 @@ export interface ChainSelectProps {
   className?: string;
   buttonClassName?: string;
 }
+
+const chains = [allChains[0]]
 
 const options: SelectOption<ChainId>[] = chains.map((chain) => {
   const metadata = CHAIN_METADATA[chain.id as ChainId];

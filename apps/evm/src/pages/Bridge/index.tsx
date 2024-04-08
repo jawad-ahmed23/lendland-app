@@ -260,10 +260,12 @@ const BridgePage: React.FC = () => {
   // either BSC mainnet or BSC testnet must be the origin or the destination
   const [fromChainIdOptions, toChainIdOptions] = useMemo(() => {
     const bscChainListOptions = getOptionsFromChainsList(
-      chains.filter(c => c.id === ChainId.BSC_MAINNET || c.id === ChainId.BSC_TESTNET),
+      // chains.filter(c => c.id === ChainId.BSC_MAINNET || c.id === ChainId.BSC_TESTNET),
+      chains.filter(c => c.id === ChainId.ETHEREUM),
     );
     const otherChainsListOptions = getOptionsFromChainsList(
-      chains.filter(c => c.id !== ChainId.BSC_MAINNET && c.id !== ChainId.BSC_TESTNET),
+      // chains.filter(c => c.id !== ChainId.BSC_MAINNET && c.id !== ChainId.BSC_TESTNET),
+      chains.filter(c => c.id !== ChainId.ETHEREUM),
     );
     if (chainId === ChainId.BSC_MAINNET || chainId === ChainId.BSC_TESTNET) {
       return [bscChainListOptions, otherChainsListOptions];
