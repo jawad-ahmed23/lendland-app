@@ -73,6 +73,12 @@ export const ENV_VARIABLES = {
      ? process.env.VITE_RPC_HTTP_URL_BOBA
      : import.meta.env.VITE_RPC_HTTP_URL_BOBA,         
 
+  // Boba testnet 
+  VITE_RPC_HTTP_URL_BOBA_TESTNET:    
+  typeof process !== 'undefined'
+      ? process.env.VITE_RPC_HTTP_URL_BOBA_TESTNET
+      : import.meta.env.VITE_RPC_HTTP_URL_BOBA_TESTNET,        
+
   // Third-parties
   VITE_SENTRY_DSN:
     typeof process !== 'undefined' ? process.env.VITE_SENTRY_DSN : import.meta.env.VITE_SENTRY_DSN,

@@ -15,5 +15,6 @@ export const tokens: TokenMapping = {
   [ChainId.OPBNB_TESTNET]: opBnbTestnetTokens,
   [ChainId.SEPOLIA]: sepoliaTokens,
   [ChainId.ETHEREUM]: ethereumTokens,
-  [ChainId.BOBA]: sepoliaTokens
+  [ChainId.BOBA]: sepoliaTokens,
+  [ChainId.BOBA_TESTNET]: sepoliaTokens
 };

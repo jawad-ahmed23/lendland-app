@@ -12,7 +12,7 @@ import isolatedPoolsEthereumDeployments from '@venusprotocol/isolated-pools/depl
 import isolatedPoolsOpBnbMainnetDeployments from '@venusprotocol/isolated-pools/deployments/opbnbmainnet_addresses.json';
 import isolatedPoolsOpBnbTestnetDeployments from '@venusprotocol/isolated-pools/deployments/opbnbtestnet_addresses.json';
 import isolatedPoolsSepoliaDeployments from '@venusprotocol/isolated-pools/deployments/sepolia_addresses.json';
-import { abi as ResilientOracleAbi } from '@venusprotocol/oracle/artifacts/contracts/ResilientOracle.sol/ResilientOracle.json';
+//import { abi as ResilientOracleAbi } from '@venusprotocol/oracle/artifacts/contracts/ResilientOracle.sol/ResilientOracle.json';
 import venusOracleBscMainnetDeployments from '@venusprotocol/oracle/deployments/bscmainnet_addresses.json';
 import venusOracleBscTestnetDeployments from '@venusprotocol/oracle/deployments/bsctestnet_addresses.json';
 import venusOracleEthereumDeployments from '@venusprotocol/oracle/deployments/ethereum_addresses.json';
@@ -64,6 +64,13 @@ import pancakePairV2Abi from './externalAbis/PancakePairV2.json';
 import vBnbAbi from './externalAbis/VBnb.json';
 import XsequenceMulticall from './externalAbis/XsequenceMulticall.json';
 
+// from abi folder
+import  ResilientOracle  from './abis/ResilientOracle.json';
+import PoolLens from "./abis/PoolLens.json";
+import PoolRegistry from "./abis/PoolRegistry.json";
+import SwapRouter from "./abis/swapRouter.json";
+
+
 export interface UniqueContractConfig {
   name: string;
   abi: ContractInterface;
@@ -104,7 +111,7 @@ export const contracts: ContractConfig[] = [
   },
   {
     name: 'PoolLens',
-    abi: PoolLensAbi,
+    abi: PoolLens.abi,
     address: {
       [ChainId.BSC_TESTNET]: isolatedPoolsBscTestnetDeployments.addresses.PoolLens,
       [ChainId.BSC_MAINNET]: isolatedPoolsBscMainnetDeployments.addresses.PoolLens,
@@ -112,11 +119,12 @@ export const contracts: ContractConfig[] = [
       [ChainId.OPBNB_MAINNET]: isolatedPoolsOpBnbMainnetDeployments.addresses.PoolLens,
       [ChainId.OPBNB_TESTNET]: isolatedPoolsOpBnbTestnetDeployments.addresses.PoolLens,
       [ChainId.SEPOLIA]: isolatedPoolsSepoliaDeployments.addresses.PoolLens,
+      [ChainId.BOBA_TESTNET]: PoolLens.address
     },
   },
   {
     name: 'PoolRegistry',
-    abi: PoolRegistryAbi,
+    abi: PoolRegistry.abi,
     address: {
       [ChainId.BSC_TESTNET]: isolatedPoolsBscTestnetDeployments.addresses.PoolRegistry_Proxy,
       [ChainId.BSC_MAINNET]: isolatedPoolsBscMainnetDeployments.addresses.PoolRegistry_Proxy,
@@ -124,6 +132,7 @@ export const contracts: ContractConfig[] = [
       [ChainId.OPBNB_MAINNET]: isolatedPoolsOpBnbMainnetDeployments.addresses.PoolRegistry_Proxy,
       [ChainId.OPBNB_TESTNET]: isolatedPoolsOpBnbTestnetDeployments.addresses.PoolRegistry_Proxy,
       [ChainId.SEPOLIA]: isolatedPoolsSepoliaDeployments.addresses.PoolRegistry_Proxy,
+      [ChainId.BOBA_TESTNET]: PoolRegistry.address
     },
   },
   {
@@ -239,11 +248,13 @@ export const contracts: ContractConfig[] = [
       [ChainId.SEPOLIA]: '0xca11bde05977b3631167028862be2a173976ca11',
       [ChainId.OPBNB_MAINNET]: '0xca11bde05977b3631167028862be2a173976ca11',
       [ChainId.OPBNB_TESTNET]: '0xca11bde05977b3631167028862be2a173976ca11',
+      [ChainId.BOBA_TESTNET]: '0x0216a640C4d53F2a6603042d4E14A2B890efcD45'
+
     },
   },
   {
     name: 'ResilientOracle',
-    abi: ResilientOracleAbi,
+    abi: ResilientOracle.abi,
     address: {
       [ChainId.BSC_TESTNET]: venusOracleBscTestnetDeployments.addresses.ResilientOracle,
       [ChainId.BSC_MAINNET]: venusOracleBscMainnetDeployments.addresses.ResilientOracle,
@@ -251,6 +262,8 @@ export const contracts: ContractConfig[] = [
       [ChainId.OPBNB_MAINNET]: venusOracleOpBnbMainnetDeployments.addresses.ResilientOracle,
       [ChainId.OPBNB_TESTNET]: venusOracleOpBnbTestnetDeployments.addresses.ResilientOracle,
       [ChainId.SEPOLIA]: venusOracleSepoliaDeployments.addresses.ResilientOracle,
+      [ChainId.BOBA]: ResilientOracle.address,
+      [ChainId.BOBA_TESTNET]: ResilientOracle.address
     },
   },
   {
@@ -346,7 +359,7 @@ export const contracts: ContractConfig[] = [
   // SwapRouter contract
   {
     name: 'SwapRouter',
-    abi: SwapRouterAbi,
+    abi: SwapRouter.abi,
     address: {
       [ChainId.BSC_TESTNET]: {
         // Core pool
@@ -384,6 +397,7 @@ export const contracts: ContractConfig[] = [
       [ChainId.OPBNB_TESTNET]: {},
       [ChainId.ETHEREUM]: {},
       [ChainId.SEPOLIA]: {},
+      [ChainId.BOBA_TESTNET]: {}
     },
   },
   // NativeTokenGateway contract addresses for each supported pool

@@ -15,6 +15,7 @@ export enum ChainId {
   OPBNB_MAINNET = 204,
   OPBNB_TESTNET = 5611,
   BOBA = 288,
+  BOBA_TESTNET = 28882
 }
 
 export type TransactionType = 'chain' | 'layerZero';

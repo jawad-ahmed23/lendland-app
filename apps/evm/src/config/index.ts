@@ -65,6 +65,9 @@ const rpcUrls = {
   [ChainId.BOBA]: {
     http: ENV_VARIABLES.VITE_RPC_HTTP_URL_BOBA,
    // webSocket: ENV_VARIABLES.VITE_RPC_WEBSOCKET_URL_SEPOLIA,
+  },
+  [ChainId.BOBA_TESTNET]: {
+    http: ENV_VARIABLES.VITE_RPC_HTTP_URL_BOBA_TESTNET
   }
 };
 

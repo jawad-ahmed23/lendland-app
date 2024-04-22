@@ -78,4 +78,14 @@ export const CHAIN_METADATA: {
     corePoolComptrollerContractAddress: '0x7Aa39ab4BcA897F403425C9C6FDbd0f882Be0D70',
     nativeToken: getToken({ chainId: ChainId.BOBA, symbol: 'BOBA' })!,
   },
+  [ChainId.BOBA_TESTNET]: {
+    name: 'Boba Sepolia',
+    logoSrc: bobaLogo,
+    explorerUrl: 'https://routescan.io',
+    layerZeroScanUrl: 'https://testnet.layerzeroscan.com/',
+    blockTimeMs: 12000,
+    blocksPerDay: 7200,
+    corePoolComptrollerContractAddress: '0x7Aa39ab4BcA897F403425C9C6FDbd0f882Be0D70',
+    nativeToken: getToken({ chainId: ChainId.BOBA, symbol: 'BOBA' })!,
+  },
 };
