@@ -19,10 +19,10 @@ export const bobaSepolia =  defineChain({
     default: { name: 'BOBAScan', url: 'https://testnet.bobascan.com' },
   },
   contracts: {
-    multicall3: {
-      address: '0x0216a640C4d53F2a6603042d4E14A2B890efcD45',
-      blockCreated: 154928,
-    },
+    // multicall3: {
+    //   address: '0x0216a640C4d53F2a6603042d4E14A2B890efcD45',
+    //   blockCreated: 154928,
+    // },
   },
   testnet: true,
 })
