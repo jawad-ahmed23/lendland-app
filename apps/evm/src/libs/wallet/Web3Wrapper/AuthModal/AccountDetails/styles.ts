@@ -68,11 +68,11 @@ export const useStyles = () => {
       line-height: 0;
 
       :hover > svg {
-        color: ${theme.palette.button.medium};
+        color: #9eb706;
       }
 
       :active > svg {
-        color: ${theme.palette.button.dark};
+        color: #9eb706;
       }
     `,
     copyButtonIcon: css`

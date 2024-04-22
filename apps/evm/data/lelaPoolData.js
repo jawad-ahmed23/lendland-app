@@ -3,7 +3,7 @@ export const lelaPoolData = [
     token: {
       address: "0x5fFbE5302BadED40941A403228E6AD03f93752d9",
       decimals: 18,
-      symbol: "VAI",
+      symbol: "LELA",
       asset: "/assets/lela.png",
     },
     xvsPerDay: "5529.6",
@@ -24,8 +24,8 @@ export const lelaPoolData = [
     token: {
       address: "0xA11c8D9DC9b66E209Ef60F0C8D969D3CD988782c",
       decimals: 6,
-      symbol: "USDT",
-      asset: "/assets/usdt.svg",
+      symbol: "WETH",
+      asset: "/assets/weth.png",
     },
     xvsPerDay: "999.9999936",
     xvsSupplyApy: "0",
@@ -35,14 +35,19 @@ export const lelaPoolData = [
     token: {
       address: "0x8301F2213c0eeD49a7E28Ae4c3e91722919B8B47",
       decimals: 18,
-      symbol: "BUSD",
-      asset: "/assets/busd.svg",
+      symbol: "BOBA",
+      asset: "/assets/boba.png",
     },
     xvsPerDay: "0",
     xvsSupplyApy: "0",
     xvsBorrowApy: "0",
   },
-  {
+
+
+];
+
+/*
+{
     token: {
       address: "0x75107940Cf1121232C0559c747A986DEfbc69DA9",
       decimals: 18,
@@ -274,4 +279,4 @@ export const lelaPoolData = [
     xvsSupplyApy: "1369.1273741495547",
     xvsBorrowApy: "1000000",
   },
-];
+*/

@@ -37,7 +37,7 @@ const getSupportedChains = (): Chain[] => {
   }
 
   //return [bsc, mainnet, opBNB];
-    return [ boba]
+    return [boba, mainnet]
 };
 
 export const governanceChain = localConfig.isOnTestnet ? bscTestnet : bsc;

@@ -162,7 +162,7 @@ export default createTheme({
         root: {
           // backgroundImage: 'none',
           // backgroundColor: PALETTE.background.paper,
-          backgroundImage: 'linear-gradient(140deg, rgba(7, 9, 14, 1) 70%, rgba(184, 208, 34, 0.7) 130%)',
+          backgroundImage: 'linear-gradient(140deg, #000 70%, rgba(184, 208, 34, 0.7) 130%)',
           borderRadius: SHAPE.borderRadius.large,
           padding: SPACING * 6,
           boxShadow: 'none',
